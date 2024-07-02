@@ -37,7 +37,7 @@ export default {
     ProjectsSection,
     TestimonialsSection,
     ContactSection
-  }
+   }
 }
 </script>
 

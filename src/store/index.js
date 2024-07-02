@@ -13,7 +13,6 @@ export default createStore({
     testimonials: null
   },
   getters: {
-    // Define getters if needed
   },
   mutations: {
     setjobTitle(state, value) {

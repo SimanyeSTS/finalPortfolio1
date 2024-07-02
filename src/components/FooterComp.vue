@@ -2,7 +2,7 @@
 <template>
     <footer class="container-fluid">
         <div class="row">
-            <p class="lead">&copy;Copyright | Simanye Somdaka </p> <span class="shadow">{{ cYear }}</span>
+            <p class="lead">&copy;Copyright | Simanye Somdaka</p><span class="shadow">{{ cYear }}</span>
         </div>
     </footer>
 </template>
