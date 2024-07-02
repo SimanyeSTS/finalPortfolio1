@@ -28,9 +28,18 @@ import ResumeSection from '@/components/ResumeSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
 import TestimonialsSection from '@/components/TestimonialsSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
+
+export default {
+  components: {
+    HomeSection,
+    AboutSection,
+    ResumeSection,
+    ProjectsSection,
+    TestimonialsSection,
+    ContactSection
+  }
+}
 </script>
 
 <style>
-
-
 </style>

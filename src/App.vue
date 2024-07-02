@@ -4,9 +4,9 @@
     <main>
       <router-view />
       <HomeSection />
-      <About />
+      <AboutSection />
       <ResumeSection />
-      <ProjectSection />
+      <ProjectsSection />
       <TestimonialsSection />
     </main>
     <FooterComp />
@@ -20,16 +20,21 @@ import FooterComp from '@/components/FooterComp.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
 import ResumeSection from '@/components/ResumeSection.vue'
 import TestimonialsSection from '@/components/TestimonialsSection.vue'
-import HomeSectionVue from './components/HomeSection.vue'
+import HomeSection from '@/components/HomeSection.vue'
 
 export default {
-  components:
-  NavBar,
-  FooterComp
+  components: {
+    NavBar,
+    AboutSection,
+    FooterComp,
+    ProjectsSection,
+    ResumeSection,
+    TestimonialsSection,
+    HomeSection
+  }
 }
 </script>
 
 <style>
-
 
 </style>
