@@ -74,11 +74,11 @@ nav {
 
 
 .navbar-toggler {
-    border-color: black; /* White border for the toggle button */
+    border-color: black;
 }
 
 .navbar-toggler-icon {
-    background-color: black; /* White background for the toggle icon */
+    background-color: #ff6600;
 }
 
 .nav-item i {
