@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
             <router-link class="navbar-brand" to="/">
                 <img src="https://simanyests.github.io/Images/images/Screenshot 2024-05-07 141157.png" alt="logo" class="img-fluid"
@@ -58,4 +58,34 @@
             </div>
         </div>
     </nav>
-  </template>
+</template>
+
+<style scoped>
+nav {
+    padding: 30px;
+    background-color: #ff6600;
+}
+
+.navbar-brand,
+.nav-link {
+    font-weight: bold;
+    color: black;
+}
+
+
+.navbar-toggler {
+    border-color: black; /* White border for the toggle button */
+}
+
+.navbar-toggler-icon {
+    background-color: black; /* White background for the toggle icon */
+}
+
+.nav-item i {
+    margin-right: 5px;
+}
+
+img[alt='logo'] {
+    width: 5rem;
+}
+</style>

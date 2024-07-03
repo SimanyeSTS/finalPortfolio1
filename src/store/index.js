@@ -6,36 +6,37 @@ const portfolioURL = 'https://simanyests.github.io/myPorfolioData/data/'
 
 export default createStore({
   state: {
-    jobTitle: null,
+    jobTitle: [],
     about: null,
     resume: null,
     projects: null,
     testimonials: null
   },
   getters: {
+    jobTitles: state => state.jobTitle
   },
   mutations: {
-    setjobTitle(state, value) {
+    setJobTitle(state, value) {
       state.jobTitle = value
     },
-    setabout(state, value) {
+    setAbout(state, value) {
       state.about = value
     },
-    setresume(state, value) {
+    setResume(state, value) {
       state.resume = value
     },
-    setprojects(state, value) {
+    setProjects(state, value) {
       state.projects = value
     },
-    settestimonials(state, value) {
+    setTestimonials(state, value) {
       state.testimonials = value
     }
   },
   actions: {
-    async fetchjobTitle(context) {
+    async fetchJobTitle(context) {
       try {
         let { jobTitle } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setjobTitle", jobTitle)
+        context.commit("setJobTitle", jobTitle)
       } catch (e) {
         Swal.fire({
           title: "Error",
@@ -45,10 +46,10 @@ export default createStore({
         })
       } 
     },
-    async fetchabout(context) {
+    async fetchAbout(context) {
       try {
         let { about } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setabout", about)
+        context.commit("setAbout", about)
       } catch (e) {
         Swal.fire({
           title: "Error",
@@ -58,10 +59,10 @@ export default createStore({
         })
       } 
     },
-    async fetchresume(context) {
+    async fetchResume(context) {
       try {
         let { resume } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setresume", resume)
+        context.commit("setResume", resume)
       } catch (e) {
         Swal.fire({
           title: "Error",
@@ -71,10 +72,10 @@ export default createStore({
         })
       } 
     },
-    async fetchprojects(context) {
+    async fetchProjects(context) {
       try {
         let { projects } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setprojects", projects)
+        context.commit("setProjects", projects)
       } catch (e) {
         Swal.fire({
           title: "Error",
@@ -84,10 +85,10 @@ export default createStore({
         })
       }
     },
-    async fetchtestimonials(context) {
+    async fetchTestimonials(context) {
       try {
         let { testimonials } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("settestimonials", testimonials)
+        context.commit("setTestimonials", testimonials)
       } catch (e) {
         Swal.fire({
           title: "Error",
