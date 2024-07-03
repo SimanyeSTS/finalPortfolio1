@@ -1,8 +1,8 @@
-import { createStore } from 'vuex'
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import { createStore } from 'vuex';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-const portfolioURL = 'https://simanyests.github.io/myPorfolioData/data/'
+const portfolioURL = 'https://simanyests.github.io/myPorfolioData/data/';
 
 export default createStore({
   state: {
@@ -17,88 +17,88 @@ export default createStore({
   },
   mutations: {
     setJobTitle(state, value) {
-      state.jobTitle = value
+      state.jobTitle = value;
     },
     setAbout(state, value) {
-      state.about = value
+      state.about = value;
     },
     setResume(state, value) {
-      state.resume = value
+      state.resume = value;
     },
     setProjects(state, value) {
-      state.projects = value
+      state.projects = value;
     },
     setTestimonials(state, value) {
-      state.testimonials = value
+      state.testimonials = value;
     }
   },
   actions: {
     async fetchJobTitle(context) {
       try {
-        let { jobTitle } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setJobTitle", jobTitle)
+        let { jobTitle } = await axios.get(portfolioURL).then(res => res.data);
+        context.commit("setJobTitle", jobTitle);
       } catch (e) {
         Swal.fire({
           title: "Error",
           text: "Failed to fetch the job title",
           icon: "error",
           timer: 2000
-        })
-      } 
+        });
+      }
     },
     async fetchAbout(context) {
       try {
-        let { about } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setAbout", about)
+        let { about } = await axios.get(portfolioURL).then(res => res.data);
+        context.commit("setAbout", about);
       } catch (e) {
         Swal.fire({
           title: "Error",
           text: "Failed to fetch about",
           icon: "error",
           timer: 2000
-        })
-      } 
+        });
+      }
     },
     async fetchResume(context) {
       try {
-        let { resume } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setResume", resume)
+        let { resume } = await axios.get(portfolioURL).then(res => res.data);
+        context.commit("setResume", resume);
       } catch (e) {
         Swal.fire({
           title: "Error",
           text: "Failed to fetch the resume",
           icon: "error",
           timer: 2000
-        })
-      } 
+        });
+      }
     },
     async fetchProjects(context) {
       try {
-        let { projects } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setProjects", projects)
+        let { projects } = await axios.get(portfolioURL).then(res => res.data);
+        context.commit("setProjects", projects);
       } catch (e) {
         Swal.fire({
           title: "Error",
           text: "Failed to fetch the projects",
           icon: "error",
           timer: 2000
-        })
+        });
       }
     },
     async fetchTestimonials(context) {
       try {
-        let { testimonials } = await axios.get(portfolioURL).then(res => res.data)
-        context.commit("setTestimonials", testimonials)
+        let { testimonials } = await axios.get(portfolioURL).then(res => res.data);
+        context.commit("setTestimonials", testimonials);
       } catch (e) {
         Swal.fire({
           title: "Error",
           text: "Failed to fetch the testimonials",
           icon: "error",
           timer: 2000
-        })
-      } 
+        });
+      }
     }
   },
   modules: {
   }
-})
+});
