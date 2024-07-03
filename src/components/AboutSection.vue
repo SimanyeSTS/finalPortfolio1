@@ -4,11 +4,11 @@
     </div>
 </template>
 
-<scrip>
+<script>
 
-</scrip>
+</script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 
 </style>
