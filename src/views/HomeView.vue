@@ -3,18 +3,23 @@
     <section class="row" id="home">
       <HomeSection />
     </section>
+    <hr>
     <section class="row" id="about">
       <AboutSection />
     </section>
+    <hr>
     <section class="row" id="resume">
       <ResumeSection />
     </section>
+    <hr>
     <section class="row projects">
       <ProjectsSection />
     </section>
+    <hr>
     <section class="row" id="testimonials">
       <TestimonialsSection />
     </section>
+    <hr>
     <section class="row" id="contact">
       <ContactSection />
     </section>
@@ -42,4 +47,9 @@ export default {
 </script>
 
 <style>
+#home{
+  width: 100%;
+  background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
+  background: linear-gradient(to left, #ff8c00 100%);
+}
 </style>

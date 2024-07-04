@@ -63,7 +63,7 @@
 <style scoped>
 nav {
     padding: 30px;
-    background-color: #ff6600;
+    background-color: #ff8c00;
 }
 
 .navbar-brand,
@@ -78,7 +78,7 @@ nav {
 }
 
 .navbar-toggler-icon {
-    background-color: #ff6600;
+    background-color: #ff8c00;
 }
 
 .nav-item i {
@@ -87,5 +87,6 @@ nav {
 
 img[alt='logo'] {
     width: 5rem;
+    height: 3rem;
 }
 </style>
