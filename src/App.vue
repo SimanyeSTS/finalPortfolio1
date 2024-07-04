@@ -24,6 +24,6 @@ export default {
 
 <style scoped>
 .wrapper{
-  background-color: #2e2e2e;
+  background-color: #36454F;
 }
 </style>
