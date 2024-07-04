@@ -14,7 +14,7 @@
             <button @click="goToHost" class="btn btn-primary">
                 <i class="fa fa-file"></i>Hosted Demo </button>
                 <button @click="goToGit" class="btn btn-primary">
-                    <i class="fa fa-file">Github Repo</i></button>
+                    <i class="fa fa-file"></i>Github Repo</button>
           </template>
         </ProjectsCard>
       </div>
