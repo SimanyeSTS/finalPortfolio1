@@ -37,5 +37,6 @@ export default {
 }
 .card:hover{
   border-block-color: #ff8c00;
+  cursor: pointer;
 }
 </style>

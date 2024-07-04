@@ -48,16 +48,28 @@ export default {
 
 <style>
 #home{
-  width: 100%;
+  width: 110.7%;
   background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
-  background: linear-gradient(to left, #ff8c00 100%);
 }
 
 #about{
+  margin-left: -15%;
   background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
 
 }
 #resume{
   background-color: #36454F;
+}
+#projects{
+  background-color: #36454F;
+}
+#testimonials{
+  background-color: #36454F;
+}
+#contact{
+  background-color: #36454F;
+}
+hr{
+  background-color: #ff8c00;
 }
 </style>

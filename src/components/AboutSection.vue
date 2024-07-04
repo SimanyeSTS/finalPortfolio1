@@ -48,7 +48,6 @@
     display: flex;
     max-width: 1200px;
     width: 100%;
-    background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
   }
   
   .text-container {
