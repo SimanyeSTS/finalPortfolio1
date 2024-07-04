@@ -52,4 +52,9 @@ export default {
   background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
   background: linear-gradient(to left, #ff8c00 100%);
 }
+
+#about{
+  background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
+
+}
 </style>

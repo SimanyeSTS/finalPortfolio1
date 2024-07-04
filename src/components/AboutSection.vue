@@ -1,8 +1,8 @@
 <template>
+  <h1>About</h1>
     <section class="about-section">
       <div class="container">
         <div class="text-container">
-          <h1>About</h1>
           <p>{{ aboutText }}</p>
         </div>
         <div class="image-container">
@@ -40,7 +40,7 @@
     align-items: center;
     justify-content: center;
     padding: 50px;
-    background-color: #2e2e2e;
+    background-color: transparent;
     color: white;
   }
   
@@ -48,14 +48,19 @@
     display: flex;
     max-width: 1200px;
     width: 100%;
+    background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
   }
   
   .text-container {
     flex: 1;
     padding: 20px;
-    background-color: #ff6600;
+    text-align: center;
+    margin-top: 10%;
   }
-  
+  h1 {
+    color: white;
+  }
+
   .image-container {
     flex: 1;
     padding: 20px;
@@ -65,6 +70,10 @@
     width: 100%;
     height: auto;
     border-radius: 10px;
+  }
+  p{
+    font-weight: bold;
+
   }
   </style>
   
