@@ -62,7 +62,8 @@
 
 <style scoped>
 nav {
-    padding: 30px;
+    padding: 0px;
+    margin: 0px;
     background-color: #ff8c00;
 }
 
