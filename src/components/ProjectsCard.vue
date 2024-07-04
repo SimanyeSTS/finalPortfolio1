@@ -1,38 +1,47 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <slot name="cardHeader"></slot>
+      <img :src="image" alt="Card Image" class="card-image" />
     </div>
     <div class="card-body">
-      <slot name="cardBody"></slot>
-    </div>
-    <div class="card-footer">
-      <slot name="cardFooter"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
+
 <script>
 export default {
-  name: "ProjectsCard"
+  name: 'ProjectsCard',
+  props: {
+    image: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
+
 <style scoped>
 .card {
-  width: 320px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  width: 18rem;
+  background-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  color: black;
 }
-.card-header img {
-  width: 100%;
-  height: auto;
+.card-header {
+  padding: 10px;
+  text-align: center;
+}
+.card-image {
+  max-width: 60%;
 }
 .card-body {
   padding: 15px;
 }
-.card-footer {
-  display: flex;
-  justify-content: space-between;
+.card:hover {
+  border-color: #ff8c00;
+  cursor: pointer;
 }
 </style>
