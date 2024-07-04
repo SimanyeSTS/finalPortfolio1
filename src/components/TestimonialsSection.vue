@@ -1,49 +1,62 @@
 <template>
-    <div class="testimonials">
-      <h1>Testimonials</h1>
-      <ul>
-        <li v-for="testimonial in testimonials" :key="testimonial.id">
-          <component
-            :is="testimonial.id % 2 === 0 ? 'TestimonialsCard1' : 'TestimonialsCard2'"
-            :testimonial="testimonial"
-          >
-            <template v-slot:cardHeader>
-              <h2>{{ testimonial.title }}</h2>
-            </template>
-            <template v-slot:cardBody>
-              <p>{{ testimonial.description }}</p>
-            </template>
-          </component>
-        </li>
-      </ul>
+    <div class="testimonials-section">
+      <h2>Testimonials</h2>
+      <div class="testimonials-grid">
+        <div v-for="testimonial in testimonialsCard1" :key="testimonial.id" class="testimonial-card">
+          <TestimonialsCard1 :testimonial="testimonial" />
+        </div>
+        <div v-for="testimonial in testimonialsCard2" :key="testimonial.id" class="testimonial-card">
+          <TestimonialsCard2 :testimonial="testimonial" />
+        </div>
+      </div>
     </div>
   </template>
+  
   <script>
   import { mapState, mapActions } from 'vuex';
+  import TestimonialsCard1 from '@/components/TestimonialsCard1.vue';
+  import TestimonialsCard2 from '@/components/TestimonialsCard2.vue';
+  
   export default {
     name: 'TestimonialsSection',
+    components: {
+      TestimonialsCard1,
+      TestimonialsCard2
+    },
     computed: {
       ...mapState({
         testimonials: state => state.testimonials
-      })
+      }),
+      testimonialsCard1() {
+        return this.testimonials ? this.testimonials.filter(testimonial => [1, 3, 5].includes(testimonial.id)) : [];
+      },
+      testimonialsCard2() {
+        return this.testimonials ? this.testimonials.filter(testimonial => [2, 4, 6].includes(testimonial.id)) : [];
+      }
     },
-    created() {
-      this.fetchTestData();
+    mounted() {
+      this.fetchTestimonials();
     },
     methods: {
       ...mapActions(['fetchTestimonials'])
     }
   };
   </script>
+  
   <style scoped>
-  .testimonials {
-    padding: 20px;
+  .testimonials-section {
+    margin-top: 40px;
+    padding: 0 20px;
   }
-  ul {
-    list-style: none;
-    padding: 0;
+  
+  .testimonials-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
-  li {
-    margin-bottom: 30px;
+  
+  .testimonial-card {
+    width: calc(50% - 10px);
   }
   </style>
+  

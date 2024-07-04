@@ -11,7 +11,10 @@
             <p>{{ project.description }}</p>
           </template>
           <template v-slot:cardFooter>
-            <!-- Footer buttons will be rendered in ProjectsCard -->
+            <button @click="goToHost" class="btn btn-primary">
+                <i class="fa fa-file"></i>Hosted Demo </button>
+                <button @click="goToGit" class="btn btn-primary">
+                    <i class="fa fa-file">Github Repo</i></button>
           </template>
         </ProjectsCard>
       </div>
@@ -20,7 +23,7 @@
   
   <script>
   import { mapState, mapActions } from 'vuex';
-  import ProjectsCard from './ProjectsCard.vue'; // Adjust the path if necessary
+  import ProjectsCard from '@/components/ProjectsCard.vue';
   
   export default {
     name: 'ProjectsSection',
@@ -33,7 +36,7 @@
       })
     },
     mounted() {
-      this.fetchProjects(); // Ensure you've imported fetchProjects from Vuex actions
+      this.fetchProjects();
     },
     methods: {
       ...mapActions(['fetchProjects'])
