@@ -1,12 +1,16 @@
 <template>
-    <div class="resume">
-      <header>
-        <h1>Resume <span><button @click="downloadResume" class="btn btn-primary">
-              <i class="fa fa-file"></i> Download
-            </button></span></h1>
-          </header>
-      <section class="education">
-        <h2>Education:</h2>
+  <div class="resume">
+    <h1>
+      Resume
+      <span>
+        <button @click="downloadResume" class="btn btn-primary">
+          <i class="fa fa-file"></i> Download
+        </button>
+      </span>
+    </h1>
+    <section class="education">
+      <h2>Education:</h2>
+      <div class="grid-container">
         <div v-for="educationEntry in resume && resume.Education" :key="educationEntry.id" class="skills-card">
           <SkillsCard :image="educationEntry.image">
             <template v-slot:default>
@@ -14,9 +18,11 @@
             </template>
           </SkillsCard>
         </div>
-      </section>
-      <section class="skills">
-        <h2>Skills:</h2>
+      </div>
+    </section>
+    <section class="skills">
+      <h2>Skills:</h2>
+      <div class="grid-container">
         <div v-for="skillEntry in resume && resume.Skills" :key="skillEntry.id">
           <template v-if="skillEntry.logo">
             <div class="skills-card">
@@ -27,15 +33,15 @@
               </SkillsCard>
             </div>
           </template>
-
           <template v-else>
             <div class="skill-entry">
               <p>{{ skillEntry.description }}</p>
             </div>
           </template>
         </div>
-      </section>
-      <section class="extracurricular">
+      </div>
+    </section>
+    <section class="extracurricular">
       <h2>Extracurricular Activities:</h2>
       <div v-for="activity in resume && resume['Extracurricular Activities']" :key="activity.id">
         <div class="activity-entry">
@@ -54,30 +60,46 @@
       </div>
     </section>
   </div>
-
 </template>
-  <script>
-  import SkillsCard from '@/components/SkillsCard.vue';
-  export default {
-    name: 'ResumeSection',
-    components: {
-      SkillsCard
-    },
-    computed: {
-      resume() {
-        return this.$store.state.resume;
-      }
-    },
-    created() {
-      this.$store.dispatch("fetchResume");
-    },
-  };
-  </script>
-  <style scoped>
-  .skills-card {
-    margin-bottom: 10px;
-  }
-  .skill-entry {
-    margin-bottom: 10px;
-  }
-  </style>
+<script>
+import SkillsCard from '@/components/SkillsCard.vue';
+export default {
+  name: 'ResumeSection',
+  components: {
+    SkillsCard
+  },
+  computed: {
+    resume() {
+      return this.$store.state.resume;
+    }
+  },
+  created() {
+    this.$store.dispatch("fetchResume");
+  },
+};
+</script>
+<style scoped>
+.skills-card, .skill-entry {
+  margin-bottom: 10px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+.resume {
+  text-align: center;
+}
+.btn-primary {
+  background-color: transparent;
+  color: #ff8c00;
+}
+h1, h2, h3, p {
+  color: white;
+  font-weight: bold;
+}
+h2 {
+  margin-top: 20px;
+}
+</style>

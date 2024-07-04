@@ -88,6 +88,8 @@ export default {
 }
 h1 {
   color: white;
+  text-align: center;
+  font-weight: bold;
 }
 .container {
   display: flex;
