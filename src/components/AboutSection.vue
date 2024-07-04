@@ -59,6 +59,7 @@
   }
   h1 {
     color: white;
+    text-align: center;
   }
 
   .image-container {
@@ -71,7 +72,7 @@
     height: auto;
     border-radius: 10px;
   }
-  p{
+  p, h1{
     font-weight: bold;
 
   }

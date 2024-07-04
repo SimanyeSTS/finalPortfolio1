@@ -57,4 +57,7 @@ export default {
   background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
 
 }
+#resume{
+  background-color: #36454F;
+}
 </style>

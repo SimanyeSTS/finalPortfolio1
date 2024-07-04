@@ -22,7 +22,7 @@ export default {
 <style scoped>
 .card {
   width: 18rem;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -33,6 +33,9 @@ export default {
   text-align: center;
 }
 .card-image {
-  max-width: 100%;
+  max-width: 60%;
+}
+.card:hover{
+  border-block-color: #ff8c00;
 }
 </style>
