@@ -1,11 +1,15 @@
 <template>
-  <div class="card">
-    <div class="card-image">
-      <img :src="testimonial.image" alt="Testimonial Image" />
-    </div>
-    <div class="card-body">
-      <h3>{{ testimonial.title }}</h3>
-      <p>{{ testimonial.description }}</p>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img :src="testimonial.image" class="img-fluid rounded-start" alt="Testimonial Image">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ testimonial.title }}</h5>
+          <p class="card-text">{{ testimonial.description }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,30 +20,37 @@ export default {
   props: {
     testimonial: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
 <style scoped>
 .card {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 20px;
 }
-
-.card-image {
-  margin-right: 20px;
+.img-fluid {
+  max-width: 100%;
+  height: auto;
 }
-
-.card-image img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.rounded-start {
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
 }
-
 .card-body {
   flex: 1;
+}
+.card{
+  background-color: transparent;
+}
+.card:hover{
+  border-block-color: #ff8c00;
+  cursor: pointer;
+}
+h5, p{
+  color: white;
 }
 </style>
