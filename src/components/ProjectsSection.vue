@@ -12,10 +12,10 @@
           <p>{{ project.description }}</p>
           <div class="card-footer">
             <button @click="goToHost(project.hostedUrl)" class="btn btn-primary">
-              <i class="fa fa-file"></i> Hosted Demo
+              <i class="bi bi-globe"></i>Hosted Demo
             </button>
             <button @click="goToGit(project.gitUrl)" class="btn btn-primary">
-              <i class="fa fa-file"></i> Github Repo
+              <i class="bi bi-github"></i>Github Repo
             </button>
           </div>
         </template>

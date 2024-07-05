@@ -13,9 +13,9 @@
         <h2>And I am an Aspiring {{ currentJobTitle }}.</h2>
         <div class="buttons-container">
           <button @click="downloadResume" class="btn btn-primary">
-            <i class="fa fa-file"></i> Resume</button>
+            <i class="bi bi-file-earmark-person-fill"></i>Resume</button>
           <button @click="viewVideoIntro" class="btn btn-secondary">
-            <i class="fa fa-video"></i> Video Intro</button>
+            <i class="bi bi-camera-reels-fill"></i>Video Intro</button>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
       <ResumeSection />
     </section>
     <hr>
-    <section class="row projects">
+    <section class="row projects" id="projects">
       <ProjectsSection />
     </section>
     <hr>
@@ -48,7 +48,7 @@ export default {
 
 <style>
 #home{
-  width: 110.7%;
+  width: 111.3%;
   background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
 }
 
