@@ -1,50 +1,44 @@
 <template>
-  <div>
-    <h1>Reach Me</h1>
-    <div class="contact-section">
-      <div class="contact-info">
-        <p>
-          <i class="bi bi-envelope-at-fill icon"></i>
-          <a href="mailto:simanyesomdaka@gmail.com">Email: simanyesomdaka@gmail.com</a>
-        </p>
-        <p>
-          <i class="bi bi-linkedin icon"></i>
-          <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank">LinkedIn: Simanye Somdaka</a>
-        </p>
-        <p><i class="bi bi-telephone-fill icon"></i>Phone: +27 73 603 3609</p>
-        <p><i class="bi bi-geo-alt-fill icon"></i>Home Address: Weltevreden Valley North, Cape Town, Western Cape</p>
-      </div>
-
-      <div v-if="loading" class="spinner-container">
-        <SpinnerComp />
-      </div>
-      <form v-else @submit.prevent="handleSubmit" class="contact-form">
-        <div class="form-group">
-          <input placeholder="Your Name" type="text" id="name" v-model="form.name" required />
-        </div>
-        <div class="form-group">
-          <input placeholder="Your Email" type="email" id="email" v-model="form.email" required />
-        </div>
-        <div class="form-group">
-          <input placeholder="Subject" type="text" id="subject" v-model="form.subject" required />
-        </div>
-        <div class="form-group">
-          <textarea placeholder="Your Message ;)" id="message" v-model="form.message" required></textarea>
-        </div>
-        <div class="button-group">
-          <button type="button" @click="clearForm" class="btn btn-primary">Clear</button>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
-        <p v-if="error" class="error-message">{{ error }}</p>
-      </form>
+  <h1>Reach Me</h1>
+  <div class="contact-section">
+    <div class="contact-info">
+      <p>
+        <i class="bi bi-envelope-at-fill icon"></i>
+        <a href="mailto:simanyesomdaka@gmail.com">Email: simanyesomdaka@gmail.com</a>
+      </p>
+      <p>
+        <i class="bi bi-linkedin icon"></i>
+        <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank">LinkedIn: Simanye Somdaka</a>
+      </p>
+      <p><i class="bi bi-telephone-fill icon"></i>Phone: +27 73 603 3609</p>
+      <p><i class="bi bi-geo-alt-fill icon"></i>Home Address: Weltevreden Valley North, Cape Town, Western Cape</p>
     </div>
+
+    <form @submit.prevent="handleSubmit" class="contact-form">
+      <div class="form-group">
+        <input placeholder="Your Name" type="text" id="name" v-model="form.name" required />
+      </div>
+      <div class="form-group">
+        <input placeholder="Your Email" type="email" id="email" v-model="form.email" required />
+      </div>
+      <div class="form-group">
+        <input placeholder="Subject" type="text" id="subject" v-model="form.subject" required />
+      </div>
+      <div class="form-group">
+        <textarea placeholder="Your Message ;)" id="message" v-model="form.message" required></textarea>
+      </div>
+      <div class="button-group">
+        <button type="button" @click="clearForm" class="btn btn-primary">Clear</button>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
+      <p v-if="error" class="error-message">{{ error }}</p>
+    </form>
   </div>
 </template>
 
 <script>
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
-import SpinnerComp from '@/components/SpinnerComp.vue';
 
 export default {
   data() {
@@ -55,12 +49,8 @@ export default {
         subject: '',
         message: ''
       },
-      error: '',
-      loading: false // Add loading state
+      error: ''
     };
-  },
-  components: {
-    SpinnerComp
   },
   methods: {
     handleSubmit() {
@@ -69,8 +59,6 @@ export default {
         this.error = "Please complete all fields before submitting.";
         return;
       }
-
-      this.loading = true; // Set loading to true when form is submitted
 
       const serviceID = 'service_8u7cma9';
       const templateID = 'template_s6i5hee';
@@ -91,9 +79,6 @@ export default {
             title: 'Error',
             text: 'There was an error sending your message. Please try again later.',
           });
-        })
-        .finally(() => {
-          this.loading = false; // Set loading to false when form submission is complete
         });
     },
     clearForm() {

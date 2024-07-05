@@ -1,43 +1,31 @@
 <template>
-  <div>
-    <h1>Home</h1>
-    <section v-if="jobTitles.length > 0" class="home-section">
-      <div class="container">
-        <div class="image-container">
-          <img :src="currentJobImage" alt="Profile Picture" class="profile-image" />
-        </div>
-        <div class="text-container">
-          <h1>
-            Hi, my name is <br />
-            <span class="name">Simanye Somdaka</span>
-          </h1>
-          <h2>And I am an Aspiring {{ currentJobTitle }}.</h2>
-          <div class="buttons-container">
-            <button @click="downloadResume" class="btn btn-primary">
-              <i class="bi bi-file-earmark-person-fill"></i> Resume
-            </button>
-            <button @click="viewVideoIntro" class="btn btn-secondary">
-              <i class="bi bi-camera-reels-fill"></i> Video Intro
-            </button>
-          </div>
+  <h1>Home</h1>
+  <section v-if="jobTitles.length > 0" class="home-section">
+    <div class="container">
+      <div class="image-container">
+        <img :src="currentJobImage" alt="Profile Picture" class="profile-image" />
+      </div>
+      <div class="text-container">
+        <h1>
+          Hi, my name is <br />
+          <span class="name">Simanye Somdaka</span>
+        </h1>
+        <h2>And I am an Aspiring {{ currentJobTitle }}.</h2>
+        <div class="buttons-container">
+          <button @click="downloadResume" class="btn btn-primary">
+            <i class="bi bi-file-earmark-person-fill"></i>Resume</button>
+          <button @click="viewVideoIntro" class="btn btn-secondary">
+            <i class="bi bi-camera-reels-fill"></i>Video Intro</button>
         </div>
       </div>
-    </section>
-    <div v-else>
-      <SpinnerComp />
     </div>
-  </div>
+  </section>
+  <div v-else>Loading...</div>
 </template>
-
 <script>
 import { mapState } from 'vuex';
-import SpinnerComp from '@/components/SpinnerComp.vue';
-
 export default {
   name: 'HomeSection',
-  components: {
-    SpinnerComp
-  },
   data() {
     return {
       currentJobTitle: '',
@@ -137,5 +125,54 @@ h1 {
 .btn-secondary {
   background-color: white;
   color: #ff8c00;
+}
+@media (max-width: 768px) {
+  .home-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-container, .text-container {
+    flex: 0;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .profile-image {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .home-section {
+    padding: 10px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .image-container, .text-container {
+    padding: 10px;
+  }
+  .profile-image {
+    width: 60%;
+    margin: 10px auto;
+  }
+  .buttons-container {
+    padding: 10px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
 }
 </style>
