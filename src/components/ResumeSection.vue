@@ -59,8 +59,10 @@
     </section>
   </div>
 </template>
+
 <script>
 import SkillsCard from '@/components/SkillsCard.vue';
+
 export default {
   name: 'ResumeSection',
   components: {
@@ -74,8 +76,14 @@ export default {
   created() {
     this.$store.dispatch("fetchResume");
   },
+  methods: {
+    downloadResume() {
+      window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing', '_blank');
+    }
+  }
 };
 </script>
+
 <style scoped>
 .skills-card, .skill-entry {
   margin-bottom: 10px;
