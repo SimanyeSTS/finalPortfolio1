@@ -73,7 +73,9 @@
   }
   p, h1{
     font-weight: bold;
-
+  }
+  p{
+    font-size: 120%;
   }
   </style>
   

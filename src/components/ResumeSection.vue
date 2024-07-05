@@ -4,9 +4,7 @@
       Resume
       <span>
         <button @click="downloadResume" class="btn btn-primary">
-          <i class="fa fa-file"></i> Download
-        </button>
-      </span>
+          <i class="bi bi-file-earmark-arrow-down"></i></button></span>
     </h1>
     <section class="education">
       <h2>Education:</h2>

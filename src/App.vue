@@ -12,18 +12,19 @@
 import NavBar from '@/components/NavBar.vue'
 import FooterComp from '@/components/FooterComp.vue';
 
-
 export default {
   components: {
     NavBar,
     FooterComp,
-    
   }
 }
 </script>
 
-<style scoped>
+<style scoped> 
 .wrapper{
   background-color: #36454F;
 }
+</style>
+
+<style src="@/assets/css/style.css">
 </style>

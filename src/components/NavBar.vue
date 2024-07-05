@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#landing">
+                        <a class="nav-link active" aria-current="page" href="#">
                             <i class="bi bi-house-door">
                                 Home
                             </i>
@@ -21,34 +21,34 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">
-                            <i class="bi bi-file-person-fill">
+                            <i class="bi bi-person">
                                 About
-                            </i>
+                            </i>                              
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#resume">
-                            <i class="bi bi-file-person">
+                            <i class="bi bi-file-earmark-person">
                                 Resume
-                            </i>
+                            </i>                                
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">
-                            <i class="bi bi-cast">
+                            <i class="bi bi-puzzle">
                                 Projects
-                            </i>
+                            </i>                                
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#testimonials">
-                            <i class="bi bi-yelp">
+                            <i class="bi bi-stars">
                                 Testimonials
-                            </i>
+                            </i>                            
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reachMe">
+                        <a class="nav-link" href="#contact">
                             <i class="bi bi-person-lines-fill">
                                 Reach me
                             </i>
@@ -72,21 +72,23 @@ nav {
     font-weight: bold;
     color: black;
 }
+.nav-link:hover{
+    color: white;
+}
 
-
-.navbar-toggler {
+.navbar-toggler{
     border-color: black;
 }
 
-.navbar-toggler-icon {
+.navbar-toggler-icon{
     background-color: #ff8c00;
 }
 
-.nav-item i {
+.nav-item i{
     margin-right: 5px;
 }
 
-img[alt='logo'] {
+img[alt='logo']{
     width: 5rem;
     height: 3rem;
 }
