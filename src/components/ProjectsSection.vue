@@ -11,11 +11,11 @@
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <div class="card-footer">
-            <button @click="goToHost(project.hostedUrl)" class="btn btn-primary">
-              <i class="bi bi-globe"></i>Hosted Demo
+            <button @click="goToHost(project.hosted)" class="btn btn-primary">
+              <i class="bi bi-globe"></i> Hosted Demo
             </button>
-            <button @click="goToGit(project.gitUrl)" class="btn btn-primary">
-              <i class="bi bi-github"></i>Github Repo
+            <button @click="goToGit(project.gitHub)" class="btn btn-primary">
+              <i class="bi bi-github"></i> Github Repo
             </button>
           </div>
         </template>
@@ -23,6 +23,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import { mapState, mapActions } from 'vuex';
@@ -44,10 +45,10 @@ export default {
   methods: {
     ...mapActions(['fetchProjects']),
     goToHost(url) {
-      window.open(url, '_blank');
+      window.open(url, '');
     },
     goToGit(url) {
-      window.open(url, '_blank');
+      window.open(url, '');
     }
   }
 };
