@@ -1,80 +1,98 @@
 <template>
-  <div class="resume">
+  <div>
     <h1>
       Resume
       <span>
         <button @click="downloadResume" class="btn btn-primary">
-          <i class="bi bi-file-earmark-arrow-down"></i></button></span>
+          <i class="bi bi-file-earmark-arrow-down"></i>
+        </button>
+      </span>
     </h1>
-    <section class="education">
-      <h2>Education:</h2>
-      <div class="grid-container">
-        <div v-for="educationEntry in resume && resume.Education" :key="educationEntry.id" class="skills-card">
-          <SkillsCard :image="educationEntry.image">
-            <template v-slot:default>
-              <p>{{ educationEntry.description }}</p>
+
+    <div v-if="loading" class="loading-spinner">
+      <SpinnerComp />
+    </div>
+    <div v-else class="resume">
+      <section class="education">
+        <h2>Education:</h2>
+        <div class="grid-container">
+          <div v-for="educationEntry in resume && resume.Education" :key="educationEntry.id" class="skills-card">
+            <SkillsCard :image="educationEntry.image">
+              <template v-slot:default>
+                <p>{{ educationEntry.description }}</p>
+              </template>
+            </SkillsCard>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills">
+        <h2>Skills:</h2>
+        <div class="grid-container">
+          <div v-for="skillEntry in resume && resume.Skills" :key="skillEntry.id">
+            <template v-if="skillEntry.logo">
+              <div class="skills-card">
+                <SkillsCard :image="skillEntry.logo">
+                  <template v-slot:default>
+                    <p>{{ skillEntry.description }}</p>
+                  </template>
+                </SkillsCard>
+              </div>
             </template>
-          </SkillsCard>
+            <template v-else>
+              <div class="skill-entry">
+                <p>{{ skillEntry.description }}</p>
+              </div>
+            </template>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="skills">
-      <h2>Skills:</h2>
-      <div class="grid-container">
-        <div v-for="skillEntry in resume && resume.Skills" :key="skillEntry.id">
-          <template v-if="skillEntry.logo">
-            <div class="skills-card">
-              <SkillsCard :image="skillEntry.logo">
-                <template v-slot:default>
-                  <p>{{ skillEntry.description }}</p>
-                </template>
-              </SkillsCard>
-            </div>
-          </template>
-          <template v-else>
-            <div class="skill-entry">
-              <p>{{ skillEntry.description }}</p>
-            </div>
-          </template>
+      </section>
+
+      <section class="extracurricular">
+        <h2>Extracurricular Activities:</h2>
+        <div v-for="activity in resume && resume['Extracurricular Activities']" :key="activity.id">
+          <div class="activity-entry">
+            <h3>{{ activity.title }}</h3>
+            <p>{{ activity.description }}</p>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="extracurricular">
-      <h2>Extracurricular Activities:</h2>
-      <div v-for="activity in resume && resume['Extracurricular Activities']" :key="activity.id">
-        <div class="activity-entry">
-          <h3>{{ activity.title }}</h3>
-          <p>{{ activity.description }}</p>
+      </section>
+
+      <section class="volunteering">
+        <h2>Volunteering Experience:</h2>
+        <div v-for="experience in resume && resume['Volunteering Experience']" :key="experience.id">
+          <div class="experience-entry">
+            <h3>{{ experience.title }}</h3>
+            <p>{{ experience.description }}</p>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="volunteering">
-      <h2>Volunteering Experience:</h2>
-      <div v-for="experience in resume && resume['Volunteering Experience']" :key="experience.id">
-        <div class="experience-entry">
-          <h3>{{ experience.title }}</h3>
-          <p>{{ experience.description }}</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
 import SkillsCard from '@/components/SkillsCard.vue';
+import SpinnerComp from '@/components/SpinnerComp.vue';
 
 export default {
   name: 'ResumeSection',
   components: {
-    SkillsCard
+    SkillsCard,
+    SpinnerComp
   },
   computed: {
     resume() {
       return this.$store.state.resume;
+    },
+    loading() {
+      return this.$store.state.loadingResume;
     }
   },
   created() {
-    this.$store.dispatch("fetchResume");
+    this.$store.dispatch("fetchResume").catch(err => {
+      console.error("Error fetching resume:", err);
+    });
   },
   methods: {
     downloadResume() {
@@ -107,5 +125,14 @@ h1, h2, h3, p {
 }
 h2 {
   margin-top: 20px;
+}
+h1 {
+  text-align: center;
+}
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
 </style>

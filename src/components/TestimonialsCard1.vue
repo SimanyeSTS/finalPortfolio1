@@ -47,7 +47,7 @@ export default {
   background-color: transparent;
 }
 .card:hover{
-  border-block-color: #ff8c00;
+  border: solid #ff8c00;
   cursor: pointer;
 }
 h5, p{

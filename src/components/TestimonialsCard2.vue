@@ -45,7 +45,7 @@ export default {
   flex: 1;
 }
 .card:hover{
-  border-block-color: #ff8c00;
+  border: solid #ff8c00;
   cursor: pointer;
 }
 h5,p{
