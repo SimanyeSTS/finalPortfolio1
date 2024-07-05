@@ -1,11 +1,17 @@
 <template>
-  <div class="resume">
-    <h1>
-      Resume
-      <span>
-        <button @click="downloadResume" class="btn btn-primary">
-          <i class="bi bi-file-earmark-arrow-down"></i></button></span>
-    </h1>
+<div>
+  <h1>
+    Resume
+    <span>
+      <button @click="downloadResume" class="btn btn-primary">
+        <i class="bi bi-file-earmark-arrow-down"></i>
+      </button>
+    </span>
+  </h1>
+  <div v-if="loading" class="loading-spinner">
+    <SpinnerComp />
+  </div>
+  <div v-else class="resume">
     <section class="education">
       <h2>Education:</h2>
       <div class="grid-container">
@@ -58,46 +64,81 @@
       </div>
     </section>
   </div>
+</div>
 </template>
 <script>
 import SkillsCard from '@/components/SkillsCard.vue';
+import SpinnerComp from '@/components/SpinnerComp.vue';
 export default {
-  name: 'ResumeSection',
-  components: {
-    SkillsCard
+name: 'ResumeSection',
+components: {
+  SkillsCard,
+  SpinnerComp
+},
+computed: {
+  resume() {
+    return this.$store.state.resume;
   },
-  computed: {
-    resume() {
-      return this.$store.state.resume;
-    }
-  },
-  created() {
-    this.$store.dispatch("fetchResume");
-  },
+  loading() {
+    return this.$store.state.loadingResume;
+  }
+},
+created() {
+  this.$store.dispatch("fetchResume").catch(err => {
+    console.error("Error fetching resume:", err);
+  });
+},
+methods: {
+  downloadResume() {
+    window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing', '_blank');
+  }
+}
 };
 </script>
 <style scoped>
-.skills-card, .skill-entry {
-  margin-bottom: 10px;
+.resume {
+text-align: center;
+padding: 20px;
 }
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+gap: 20px;
+justify-items: center;
 }
-.resume {
-  text-align: center;
+/* Media query for larger screens */
+@media (min-width: 768px) {
+.grid-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+/* Media query for larger screens */
+@media (min-width: 1200px) {
+.grid-container {
+  grid-template-columns: repeat(3, 1fr);
+}
+}
+.skills-card, .skill-entry {
+margin-bottom: 10px;
 }
 .btn-primary {
-  background-color: transparent;
-  color: #ff8c00;
+background-color: transparent;
+color: #ff8c00;
 }
 h1, h2, h3, p {
-  color: white;
-  font-weight: bold;
+color: white;
+font-weight: bold;
 }
 h2 {
-  margin-top: 20px;
+margin-top: 20px;
+}
+h1 {
+text-align: center;
+}
+.loading-spinner {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 200px;
 }
 </style>

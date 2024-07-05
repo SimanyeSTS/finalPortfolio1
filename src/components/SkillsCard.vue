@@ -8,6 +8,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'SkillsCard',
@@ -28,15 +29,18 @@ export default {
   margin: 10px;
   color: black;
 }
+
 .card-header {
   padding: 10px;
   text-align: center;
 }
+
 .card-image {
   max-width: 60%;
 }
+
 .card:hover{
-  border-block-color: #ff8c00;
+  border: solid #ff8c00;
   cursor: pointer;
 }
 </style>

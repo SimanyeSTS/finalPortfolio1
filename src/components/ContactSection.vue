@@ -138,6 +138,10 @@ textarea {
   resize: vertical;
 }
 
+input[type="text"]:hover, input[type="email"]:hover, textarea:hover{
+  border: solid #ff8c00;
+}
+
 .button-group {
   display: flex;
   justify-content: flex-end;

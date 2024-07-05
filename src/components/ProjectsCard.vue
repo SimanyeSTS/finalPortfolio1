@@ -6,6 +6,14 @@
     <div class="card-body">
       <slot></slot>
     </div>
+    <div class="card-footer">
+      <button @click="goToHost(hosted)" class="btn btn-primary">
+        <i class="bi bi-globe"></i> Hosted Demo
+      </button>
+      <button @click="goToGit(gitHub)" class="btn btn-primary">
+        <i class="bi bi-github"></i> Github Repo
+      </button>
+    </div>
   </div>
 </template>
 
@@ -16,6 +24,16 @@ export default {
     image: {
       type: String,
       required: true
+    },
+    hosted: String,
+    gitHub: String
+  },
+  methods: {
+    goToHost(url) {
+      window.open(url, '');
+    },
+    goToGit(url) {
+      window.open(url, '');
     }
   }
 };
@@ -30,18 +48,41 @@ export default {
   margin: 10px;
   color: black;
 }
+
 .card-header {
   padding: 10px;
   text-align: center;
 }
+
 .card-image {
   max-width: 60%;
 }
+
 .card-body {
   padding: 15px;
 }
-.card:hover {
-  border-color: #ff8c00;
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #ff8c00;
+}
+
+.card:hover{
+  border: solid #ff8c00;
   cursor: pointer;
 }
 </style>

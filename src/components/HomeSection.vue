@@ -62,7 +62,7 @@ export default {
       }, 5000);
     },
     downloadResume() {
-      window.open('@/components/ResumeSection');
+      window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing');
     },
     viewVideoIntro() {
       window.open('https://www.youtube.com/watch?v=underConstruction');
@@ -125,5 +125,54 @@ h1 {
 .btn-secondary {
   background-color: white;
   color: #ff8c00;
+}
+@media (max-width: 768px) {
+  .home-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-container, .text-container {
+    flex: 0;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .profile-image {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .home-section {
+    padding: 10px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .image-container, .text-container {
+    padding: 10px;
+  }
+  .profile-image {
+    width: 60%;
+    margin: 10px auto;
+  }
+  .buttons-container {
+    padding: 10px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
 }
 </style>
