@@ -1,7 +1,7 @@
 <template>
+  <h1>Reach Me</h1>
     <div class="contact-section">
       <div class="contact-info">
-        <h1>Reach Me</h1>
         <p>Email: simanyesomdaka@gmail.com</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2">Simanye Somdaka</a></p>
         <p>Phone: +27 73 603 3609</p>
@@ -10,24 +10,20 @@
   
       <form @submit.prevent="handleSubmit" class="contact-form">
         <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" v-model="form.name" required />
+          <input placeholder="Your Name" type="text" id="name" v-model="form.name" required />
         </div>
         <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" v-model="form.email" required />
+          <input placeholder="Your Email" type="email" id="email" v-model="form.email" required />
         </div>
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" v-model="form.subject" required />
+          <input placeholder="Subject" type="text" id="subject" v-model="form.subject" required />
         </div>
         <div class="form-group">
-          <label for="message">Your Message</label>
-          <textarea id="message" v-model="form.message" required></textarea>
+          <textarea placeholder="Your Message ;)" id="message" v-model="form.message" required></textarea>
         </div>
         <div class="button-group">
-          <button type="submit">Send Message</button>
-          <button type="button" @click="clearForm">Clear</button>
+          <button type="button" @click="clearForm" class="btn btn-primary">Clear</button>
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </div>
         <p v-if="error" class="error-message">{{ error }}</p>
       </form>
@@ -108,6 +104,7 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-weight: bold;
   }
   
   textarea {
@@ -130,9 +127,14 @@
     border: none;
     border-radius: 4px;
   }
+  .btn-primary {
+  background-color: white;
+  color: #ff8c00;
+  font-weight: bold;
+  }
   
   .error-message {
-    color: red;
+    color: #ff8c00;
     font-weight: bold;
     margin-top: 0.5rem;
   }
@@ -148,6 +150,16 @@
       max-width: 100%;
       margin-bottom: 20px;
     }
+  }
+  h1, p, label{
+    color: white;
+    font-weight: bold;
+  }
+  h1{
+    text-align: center;
+  }
+  a{
+    color: white;
   }
   </style>
   
