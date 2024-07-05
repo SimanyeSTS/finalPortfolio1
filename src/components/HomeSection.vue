@@ -95,7 +95,6 @@ h1 {
   display: flex;
   max-width: 1200px;
   width: 100%;
-  /* background: linear-gradient(to right, #36454F 25%, #ff8c00 50%); */
 }
 .image-container {
   flex: 1;

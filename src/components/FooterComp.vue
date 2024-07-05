@@ -22,5 +22,8 @@ export default {
 .container-fluid{
     background-color:#ff8c00;
 }
-
+.container-fluid, p{
+    text-align: center;
+    font-weight: bold;
+}
 </style>

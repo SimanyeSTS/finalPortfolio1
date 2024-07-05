@@ -52,5 +52,6 @@ export default {
 }
 h5, p{
   color: white;
+  font-weight: bold;
 }
 </style>

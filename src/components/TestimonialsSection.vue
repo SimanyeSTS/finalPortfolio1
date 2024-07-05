@@ -1,6 +1,6 @@
 <template>
+  <h1>Testimonials</h1>
   <div class="container text-center">
-    <h1>Testimonials</h1>
     <div class="row">
       <div v-for="(testimonial, index) in sortedTestimonials" :key="testimonial.id" class="col-12 mb-4">
         <div class="row">
@@ -55,5 +55,7 @@ export default {
 h1 {
   color: white;
   margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
 }
 </style>
