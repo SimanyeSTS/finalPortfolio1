@@ -62,7 +62,7 @@ export default {
       }, 5000);
     },
     downloadResume() {
-      window.open('@/components/ResumeSection');
+      window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing');
     },
     viewVideoIntro() {
       window.open('https://www.youtube.com/watch?v=underConstruction');
