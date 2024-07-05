@@ -2,8 +2,14 @@
   <h1>Reach Me</h1>
   <div class="contact-section">
     <div class="contact-info">
-      <p><i class="bi bi-envelope-at-fill icon"></i>Email: simanyesomdaka@gmail.com</p>
-      <p><i class="bi bi-linkedin icon"></i>LinkedIn: <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2">Simanye Somdaka</a></p>
+      <p>
+        <i class="bi bi-envelope-at-fill icon"></i>
+        <a href="mailto:simanyesomdaka@gmail.com">Email: simanyesomdaka@gmail.com</a>
+      </p>
+      <p>
+        <i class="bi bi-linkedin icon"></i>
+        <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank">LinkedIn: Simanye Somdaka</a>
+      </p>
       <p><i class="bi bi-telephone-fill icon"></i>Phone: +27 73 603 3609</p>
       <p><i class="bi bi-geo-alt-fill icon"></i>Home Address: Weltevreden Valley North, Cape Town, Western Cape</p>
     </div>
@@ -31,6 +37,9 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+import emailjs from 'emailjs-com';
+
 export default {
   data() {
     return {
@@ -51,8 +60,26 @@ export default {
         return;
       }
 
-      alert("Thank you for getting in touch! I will be sure to reply at my earliest convenience.");
-      this.clearForm();
+      const serviceID = 'service_8u7cma9';
+      const templateID = 'template_s6i5hee';
+      const userID = 'FMfCQcMPcCi742ypD';
+
+      emailjs.send(serviceID, templateID, this.form, userID)
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent',
+            text: 'Thank you for getting in touch! I will be sure to reply at my earliest convenience.',
+          });
+          this.clearForm();
+        })
+        .catch(() => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'There was an error sending your message. Please try again later.',
+          });
+        });
     },
     clearForm() {
       this.form = {
