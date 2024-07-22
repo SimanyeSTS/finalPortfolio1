@@ -13,7 +13,6 @@
       <p><i class="bi bi-telephone-fill icon"></i>Phone: +27 73 603 3609</p>
       <p><i class="bi bi-geo-alt-fill icon"></i>Home Address: Weltevreden Valley North, Cape Town, Western Cape</p>
     </div>
-
     <form @submit.prevent="handleSubmit" class="contact-form">
       <div class="form-group">
         <input placeholder="Your Name" type="text" id="name" v-model="form.name" required />
@@ -35,12 +34,12 @@
     </form>
   </div>
 </template>
-
 <script>
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
-
 export default {
+  components: {
+  },
   data() {
     return {
       form: {
@@ -59,11 +58,16 @@ export default {
         this.error = "Please complete all fields before submitting.";
         return;
       }
-
+      Swal.fire({
+        title: 'Sending...',
+        html: '<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      });
       const serviceID = 'service_8u7cma9';
       const templateID = 'template_s6i5hee';
       const userID = 'FMfCQcMPcCi742ypD';
-
       emailjs.send(serviceID, templateID, this.form, userID)
         .then(() => {
           Swal.fire({
@@ -93,7 +97,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .contact-section {
   display: flex;
@@ -101,28 +104,23 @@ export default {
   justify-content: space-around;
   padding: 20px;
 }
-
 .contact-info {
   flex: 1;
   padding: 0 20px;
   max-width: 400px;
 }
-
 .contact-form {
   flex: 1;
   padding: 0 20px;
   max-width: 600px;
 }
-
 .form-group {
   margin-bottom: 1rem;
 }
-
 .label {
   display: block;
   margin-bottom: 0.5rem;
 }
-
 input[type="text"],
 input[type="email"],
 textarea {
@@ -133,21 +131,17 @@ textarea {
   border-radius: 4px;
   font-weight: bold;
 }
-
 textarea {
   resize: vertical;
 }
-
-input[type="text"]:hover, input[type="email"]:hover, textarea:hover{
+input[type="text"]:hover, input[type="email"]:hover, textarea:hover {
   border: solid #ff8c00;
 }
-
 .button-group {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
 button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -158,49 +152,40 @@ button {
   border: none;
   border-radius: 4px;
 }
-
 .btn-primary {
   background-color: white;
   color: #ff8c00;
   font-weight: bold;
 }
-
 .error-message {
   color: #ff8c00;
   font-weight: bold;
   margin-top: 0.5rem;
 }
-
 @media (max-width: 768px) {
   .contact-section {
     flex-direction: column;
     align-items: center;
   }
-
   .contact-info,
   .contact-form {
     max-width: 100%;
     margin-bottom: 20px;
   }
 }
-
 h1, p, label {
   color: white;
   font-weight: bold;
 }
-
 h1 {
   text-align: center;
 }
-
 a {
   color: white;
 }
-
 .bi {
   color: #ff8c00;
 }
-
 .icon {
   margin-right: 10px;
 }
