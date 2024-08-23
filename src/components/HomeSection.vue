@@ -3,7 +3,7 @@
   <section v-if="jobTitles.length > 0" class="home-section">
     <div class="container">
       <div class="image-container">
-        <img :src="currentJobImage" alt="Profile Picture" class="profile-image"/>
+        <img :src="currentJobImage" alt="Profile Picture" class="profile-image" loading="lazy"/>
       </div>
       <div class="text-container">
         <h1>

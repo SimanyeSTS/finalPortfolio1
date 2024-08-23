@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <img :src="testimonial.image" class="img-fluid rounded-end" alt="Testimonial Image">
+        <img :src="testimonial.image" class="img-fluid rounded-end" alt="Testimonial Image" loading="lazy">
       </div>
     </div>
   </div>
