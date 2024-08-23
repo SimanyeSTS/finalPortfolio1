@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <img :src="image" alt="Card Image" class="card-image" loading="lazy"/>
+      <img :src="image" alt="Card Image" class="card-image"/>
     </div>
     <div class="card-body">
       <slot></slot>

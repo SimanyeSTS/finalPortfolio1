@@ -9,7 +9,7 @@
             <p>{{ aboutText }}</p>
           </div>
           <div class="image-container">
-            <img :src="profileImage" alt="Profile Picture" class="profile-image" loading="lazy"/>
+            <img :src="profileImage" alt="Profile Picture" class="profile-image"/>
           </div>
         </div>
       </section>
