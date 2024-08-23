@@ -13,42 +13,42 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a class="nav-link active" aria-current="page" href="#" @click="closeNavbar">
                             <i class="bi bi-house-door">
                                 Home
                             </i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">
+                        <a class="nav-link" href="#about" @click="closeNavbar">
                             <i class="bi bi-person">
                                 About
                             </i>                              
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#resume">
+                        <a class="nav-link" href="#resume" @click="closeNavbar">
                             <i class="bi bi-file-earmark-person">
                                 Resume
                             </i>                                
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">
+                        <a class="nav-link" href="#projects" @click="closeNavbar">
                             <i class="bi bi-puzzle">
                                 Projects
                             </i>                                
                         </a>
                     </li>
                     <!-- <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">
+                        <a class="nav-link" href="#testimonials" @click="closeNavbar">
                             <i class="bi bi-stars">
                                 Testimonials
                             </i>                            
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">
+                        <a class="nav-link" href="#contact" @click="closeNavbar">
                             <i class="bi bi-person-lines-fill">
                                 Reach me
                             </i>
@@ -93,3 +93,14 @@ img[alt='logo']{
     height: 3rem;
 }
 </style>
+
+<script>
+export default {
+    methods: {
+        closeNavbar() {
+            let navbarCollapse = document.getElementById('navbarSupportedContent');
+            navbarCollapse.classList.remove('show');
+        }
+    }
+}
+</script>
