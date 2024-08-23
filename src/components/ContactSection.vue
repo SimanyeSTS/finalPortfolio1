@@ -3,13 +3,17 @@
   <div class="contact-section">
     <div class="contact-info">
       <p>
-        <i class="bi bi-envelope-at-fill icon"></i>
-        <a href="mailto:simanyesomdaka@gmail.com">Email: simanyesomdaka@gmail.com</a>
-      </p>
-      <p>
-        <i class="bi bi-linkedin icon"></i>
-        <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank">LinkedIn: Simanye Somdaka</a>
-      </p>
+  <a href="mailto:simanyesomdaka@gmail.com">
+    <i class="bi bi-envelope-at-fill icon"></i>
+  </a>
+  simanyesomdaka@gmail.com
+</p>
+<p>
+  <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank">
+    <i class="bi bi-linkedin icon"></i>
+  </a>
+  Simanye Somdaka
+</p>
       <p><i class="bi bi-telephone-fill icon"></i>Phone: +27 73 603 3609</p>
       <p><i class="bi bi-geo-alt-fill icon"></i>Home Address: Weltevreden Valley North, Cape Town, Western Cape</p>
     </div>

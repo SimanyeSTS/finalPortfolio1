@@ -40,13 +40,13 @@
                             </i>                                
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#testimonials">
                             <i class="bi bi-stars">
                                 Testimonials
                             </i>                            
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">
                             <i class="bi bi-person-lines-fill">

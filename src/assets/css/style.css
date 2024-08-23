@@ -20,3 +20,7 @@ body {
 .wrapper{
   font-family: Merriweather;
 }
+
+section {
+  scroll-margin-block: 50px;
+}

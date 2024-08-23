@@ -3,11 +3,13 @@
     <section class="row" id="home">
       <HomeSection />
     </section>
-    <hr>
+    <hr id="homeabout">
     <section class="row" id="about">
       <AboutSection />
     </section>
+    <br>
     <hr>
+    <br>
     <section class="row" id="resume">
       <ResumeSection />
     </section>
@@ -15,11 +17,13 @@
     <section class="row projects" id="projects">
       <ProjectsSection />
     </section>
+    <br>
     <hr>
-    <section class="row" id="testimonials">
+    <br>
+    <!-- <section class="row" id="testimonials">
       <TestimonialsSection />
-    </section>
-    <hr>
+    </section> -->
+    <!-- <hr> -->
     <section class="row" id="contact">
       <ContactSection />
     </section>
@@ -31,7 +35,7 @@ import HomeSection from '@/components/HomeSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
 import ResumeSection from '@/components/ResumeSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
-import TestimonialsSection from '@/components/TestimonialsSection.vue'
+// import TestimonialsSection from '@/components/TestimonialsSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 
 export default {
@@ -40,7 +44,7 @@ export default {
     AboutSection,
     ResumeSection,
     ProjectsSection,
-    TestimonialsSection,
+    // TestimonialsSection,
     ContactSection
    }
 }
@@ -57,19 +61,42 @@ export default {
   background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
 
 }
+
 #resume{
   background-color: #36454F;
 }
+
 #projects{
   background-color: #36454F;
 }
+
 #testimonials{
   background-color: #36454F;
 }
+
 #contact{
   background-color: #36454F;
 }
+
+#homeabout{
+  border: none !important;
+  border-top: 0px solid #ff8c00 !important;
+  border-color: #ff8c00 !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
 hr{
-  background-color: #ff8c00;
+  border: none !important;
+  border-top: 3px solid #ff8c00 !important;
+  border-color: #ff8c00 !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
 }
 </style>
