@@ -32,7 +32,7 @@
       </div>
       <div class="button-group">
         <button type="button" @click="clearForm" class="btn btn-primary">Clear</button>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-secondary">Send Message</button>
       </div>
       <p v-if="error" class="error-message">{{ error }}</p>
     </form>
@@ -161,6 +161,19 @@ button {
   color: #ff8c00;
   font-weight: bold;
 }
+.btn-primary:hover{
+  background-color: rgb(0, 85, 255) !important;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #ff8c00;
+  font-weight: bold;
+}
+.btn-secondary:hover{
+  background-color: rgb(103, 103, 103) !important;
+}
+
 .error-message {
   color: #ff8c00;
   font-weight: bold;

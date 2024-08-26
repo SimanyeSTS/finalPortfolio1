@@ -3,7 +3,7 @@
   <section v-if="jobTitles.length > 0" class="home-section">
     <div class="container">
       <div class="image-container">
-        <img :src="currentJobImage" alt="Profile Picture" class="profile-image"/>
+        <img :src="currentJobImage" alt="Profile Picture" class="profile-image" loading="lazy"/>
       </div>
       <div class="text-container">
         <h1>
@@ -122,9 +122,15 @@ h1 {
   background-color: white;
   color: #ff8c00;
 }
+.btn-primary:hover{
+ background-color: rgb(0, 85, 255) !important;
+}
 .btn-secondary {
   background-color: white;
   color: #ff8c00;
+}
+.btn-secondary:hover{
+  background-color: rgb(103, 103, 103) !important;
 }
 @media (max-width: 768px) {
   .home-section {

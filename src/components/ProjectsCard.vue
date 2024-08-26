@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <img :src="image" alt="Card Image" class="card-image"/>
+      <img :src="image" alt="Card Image" class="card-image" loading="lazy"/>
     </div>
     <div class="card-body">
       <slot></slot>
@@ -10,7 +10,7 @@
       <button @click="goToHost(hosted)" class="btn btn-primary">
         <i class="bi bi-globe"></i> Hosted Demo
       </button>
-      <button @click="goToGit(gitHub)" class="btn btn-primary">
+      <button @click="goToGit(gitHub)" class="btn btn-secondary">
         <i class="bi bi-github"></i> Github Repo
       </button>
     </div>
@@ -80,7 +80,17 @@ export default {
   background-color: white;
   color: #ff8c00;
 }
+.btn-primary:hover{
+  background-color: rgb(0, 85, 255) !important;
+}
 
+.btn-secondary{
+  background-color: white;
+  color: #ff8c00;
+}
+.btn-secondary:hover{
+  background-color: rgb(103, 103, 103) !important;
+}
 .card:hover{
   border: solid #ff8c00;
   cursor: pointer;

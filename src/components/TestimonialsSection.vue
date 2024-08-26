@@ -26,19 +26,19 @@
 import { mapState, mapActions } from 'vuex';
 import TestimonialsCard1 from '@/components/TestimonialsCard1.vue';
 import TestimonialsCard2 from '@/components/TestimonialsCard2.vue';
-import SpinnerComp from '@/components/SpinnerComp.vue'; // Import the spinner component
+import SpinnerComp from '@/components/SpinnerComp.vue';
 
 export default {
   name: 'TestimonialsSection',
   components: {
     TestimonialsCard1,
     TestimonialsCard2,
-    SpinnerComp // Include the spinner component in your components section
+    SpinnerComp
   },
   computed: {
     ...mapState({
       testimonials: (state) => state.testimonials,
-      loading: (state) => state.loadingTestimonials // Track loading state from Vuex
+      loading: (state) => state.loadingTestimonials
     }),
     sortedTestimonials() {
       return this.getSortedTestimonials();
