@@ -124,6 +124,7 @@ h1 {
 }
 .btn-primary:hover{
  background-color: rgb(0, 85, 255) !important;
+ color: white !important;
 }
 .btn-secondary {
   background-color: white;
@@ -131,6 +132,7 @@ h1 {
 }
 .btn-secondary:hover{
   background-color: rgb(103, 103, 103) !important;
+  color: white !important;
 }
 @media (max-width: 768px) {
   .home-section {

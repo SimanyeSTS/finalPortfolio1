@@ -163,6 +163,7 @@ button {
 }
 .btn-primary:hover{
   background-color: rgb(0, 85, 255) !important;
+  color: white !important;
 }
 
 .btn-secondary {
@@ -172,6 +173,7 @@ button {
 }
 .btn-secondary:hover{
   background-color: rgb(103, 103, 103) !important;
+  color: white !important;
 }
 
 .error-message {

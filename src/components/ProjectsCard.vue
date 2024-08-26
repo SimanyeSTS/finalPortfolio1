@@ -82,6 +82,7 @@ export default {
 }
 .btn-primary:hover{
   background-color: rgb(0, 85, 255) !important;
+  color: white !important;
 }
 
 .btn-secondary{
@@ -90,6 +91,7 @@ export default {
 }
 .btn-secondary:hover{
   background-color: rgb(103, 103, 103) !important;
+  color: white !important;
 }
 .card:hover{
   border: solid #ff8c00;
