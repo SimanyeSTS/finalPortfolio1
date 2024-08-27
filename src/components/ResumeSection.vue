@@ -125,6 +125,10 @@ margin-bottom: 10px;
 background-color: transparent;
 color: #ff8c00;
 }
+.btn-primary:hover{
+  background-color: rgb(0, 85, 255) !important;
+  color: white !important;
+}
 h1, h2, h3, p {
 color: white;
 font-weight: bold;
