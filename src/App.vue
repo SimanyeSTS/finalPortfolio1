@@ -24,6 +24,11 @@ export default {
 .wrapper{
   background-color: #36454F;
 }
+
+.container{
+  width: 100%;
+  height: 100%;
+}
 </style>
 
 <style src="@/assets/css/style.css">

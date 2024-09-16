@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <section class="row" id="home">
       <HomeSection />
     </section>
@@ -52,7 +52,7 @@ export default {
 
 <style>
 #home{
-  width: 111.3%;
+  width: 110.7%;
   background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
 }
 

@@ -65,7 +65,7 @@ export default {
       window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing');
     },
     viewVideoIntro() {
-      window.open('https://www.youtube.com/watch?v=underConstruction');
+      window.open('https://www.youtube.com/@simanyesomdaka3513');
     }
   }
 };
@@ -80,37 +80,46 @@ export default {
   background-color: transparent;
   color: white;
 }
+
 .text-container {
   flex: 1;
   padding: 20px;
   text-align: center;
   margin-top: 10%;
 }
+
 h1 {
   color: white;
   text-align: center;
   font-weight: bold;
 }
+
 .container {
   display: flex;
   max-width: 1200px;
   width: 100%;
 }
+
 .image-container {
   flex: 1;
   padding: 20px;
+  padding-bottom: 10%;
 }
+
 .profile-image {
-  width: 100%;
+  width: 70%;
   height: auto;
   border-radius: 10px;
 }
+
 .name {
   font-weight: bold;
 }
+
 .buttons-container {
   margin-top: 20px;
 }
+
 .btn {
   margin-right: 10px;
   padding: 10px 20px;
@@ -118,27 +127,78 @@ h1 {
   cursor: pointer;
   font-size: 16px;
 }
+
 .btn-primary {
   background-color: white;
   color: #ff8c00;
 }
-.btn-primary:hover{
- background-color: rgb(0, 85, 255) !important;
- color: white !important;
+
+.btn-primary:hover {
+  background-color: rgb(0, 85, 255) !important;
+  color: white !important;
 }
+
 .btn-secondary {
   background-color: white;
   color: #ff8c00;
 }
-.btn-secondary:hover{
+
+.btn-secondary:hover {
   background-color: rgb(103, 103, 103) !important;
   color: white !important;
 }
-@media (max-width: 768px) {
+
+@media (width <= 300px) {
+  .home-section {
+    padding: 10px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .image-container, .text-container {
+    padding: 10px;
+  }
+  .profile-image {
+    width: 50%;
+    margin: 10px auto;
+  }
+  .buttons-container {
+    padding: 10px;
+  }
+  .btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+@media (width <= 480px) {
+  .home-section {
+    padding: 20px;
+  }
+  .container {
+    padding: 20px;
+  }
+  .image-container, .text-container {
+    padding: 20px;
+  }
+  .profile-image {
+    width: 60%;
+    margin: 20px auto;
+  }
+  .buttons-container {
+    padding: 20px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+
+@media (width <= 768px) {
   .home-section {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
   }
   .container {
     flex-direction: column;
@@ -159,28 +219,6 @@ h1 {
   }
   .btn {
     margin-bottom: 10px;
-  }
-}
-@media (max-width: 480px) {
-  .home-section {
-    padding: 10px;
-  }
-  .container {
-    padding: 10px;
-  }
-  .image-container, .text-container {
-    padding: 10px;
-  }
-  .profile-image {
-    width: 60%;
-    margin: 10px auto;
-  }
-  .buttons-container {
-    padding: 10px;
-  }
-  .btn {
-    font-size: 14px;
-    padding: 5px 10px;
   }
 }
 </style>

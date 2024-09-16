@@ -10,9 +10,7 @@
 }
 
 
-::-webkit-scrollbar{
-  display: none;
-}
+
 
 body {
   scroll-behavior: smooth;
@@ -24,3 +22,4 @@ body {
 section {
   scroll-margin-block: 58px;
 }
+

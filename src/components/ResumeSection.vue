@@ -95,54 +95,90 @@ methods: {
 }
 };
 </script>
+
 <style scoped>
 .resume {
-text-align: center;
-padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
+
 .grid-container {
-display: grid;
-grid-template-columns: repeat(1, 1fr);
-gap: 20px;
-justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  justify-items: center;
 }
-/* Media query for larger screens */
+
 @media (min-width: 768px) {
-.grid-container {
-  grid-template-columns: repeat(2, 1fr);
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-}
-/* Media query for larger screens */
+
 @media (min-width: 1200px) {
-.grid-container {
-  grid-template-columns: repeat(3, 1fr);
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-}
+
 .skills-card, .skill-entry {
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
+
+.card {
+  width: 18rem;
+  height: 25rem; 
+  background-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  color: black;
+}
+
+.skills .skills-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px; 
+  padding: 20px;
+}
+
+.skills .skills-card .card-body p {
+  margin: 0; 
+  text-align: center; 
+  line-height: 1.5; 
+}
+
 .btn-primary {
-background-color: transparent;
-color: #ff8c00;
+  background-color: transparent;
+  color: #ff8c00;
 }
+
 .btn-primary:hover{
   background-color: rgb(0, 85, 255) !important;
   color: white !important;
 }
+
 h1, h2, h3, p {
-color: white;
-font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
+
 h2 {
-margin-top: 20px;
+  margin-top: 20px;
 }
+
 h1 {
-text-align: center;
+  text-align: center;
 }
+
 .loading-spinner {
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
+
+
 </style>

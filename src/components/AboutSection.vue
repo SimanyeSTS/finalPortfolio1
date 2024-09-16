@@ -58,7 +58,6 @@ export default {
   padding: 50px;
   background-color: transparent;
   color: white;
-  margin-left: 50px;
 }
 
 .container {
@@ -72,22 +71,22 @@ export default {
   flex: 1;
   padding: 20px;
   text-align: center;
-  margin-top: 10%;
+  margin-bottom: 5%;
 }
 
 h1 {
   color: white;
   text-align: center;
-  margin-left: 15%;
 }
 
 .image-container {
   flex: 1;
-  padding: 20px;
+  margin-left: 10%;
+  padding-bottom: 10%;
 }
 
 .profile-image {
-  width: 100%;
+  width: 70%;
   height: auto;
   border-radius: 10px;
 }
@@ -100,7 +99,47 @@ p {
   font-size: 120%;
 }
 
-@media (max-width: 768px) {
+@media (width <= 300px) {
+  .about-section {
+    padding: 10px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .text-container, .image-container {
+    padding: 10px;
+  }
+  .profile-image {
+    width: 50%;
+    margin: 10px auto;
+  }
+  p {
+    font-size: 90%;
+  }
+  h1 {
+    font-size: 120%;
+  }
+}
+
+@media (width <= 480px) {
+  .about-section {
+    padding: 20px;
+  }
+  .text-container {
+    padding: 15px;
+  }
+  .image-container {
+    padding: 15px;
+  }
+  p {
+    font-size: 100%;
+  }
+  h1 {
+    font-size: 130%;
+  }
+}
+
+@media (width <= 768px) {
   .about-section {
     flex-direction: column;
   }
@@ -120,21 +159,6 @@ p {
   }
   .text-container {
     order: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-section {
-    padding: 20px;
-  }
-  .text-container {
-    padding: 10px;
-  }
-  .image-container {
-    padding: 10px;
-  }
-  p {
-    font-size: 100%;
   }
 }
 </style>
