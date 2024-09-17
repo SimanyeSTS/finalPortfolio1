@@ -179,6 +179,4 @@ h1 {
   align-items: center;
   min-height: 200px;
 }
-
-
 </style>

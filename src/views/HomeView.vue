@@ -52,12 +52,10 @@ export default {
 
 <style>
 #home{
-  width: 110.7%;
   background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
 }
 
 #about{
-  margin-left: -15%;
   background: linear-gradient(to right, #ff8c00 50%, #36454F 100%);
 
 }

@@ -213,7 +213,7 @@ a {
   margin-right: 10px;
 }
 
-p:hover{
-  color: #ff8c00;
+.bi:hover{
+  color: white;
 }
 </style>

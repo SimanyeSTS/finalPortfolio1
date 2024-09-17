@@ -155,8 +155,11 @@ h1 {
   .container {
     padding: 10px;
   }
-  .image-container, .text-container {
+  .text-container {
     padding: 10px;
+  }
+  .image-container{
+    margin-left: 20% !important;
   }
   .profile-image {
     width: 50%;

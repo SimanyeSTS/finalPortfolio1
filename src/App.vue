@@ -1,9 +1,7 @@
 <template>
   <div class="wrapper">
     <NavBar />
-    <main class="container">
       <router-view />
-    </main>
     <FooterComp />
   </div>
 </template>
@@ -23,6 +21,8 @@ export default {
 <style scoped> 
 .wrapper{
   background-color: #36454F;
+  width: 100%;
+  height: 100%;
 }
 
 .container{

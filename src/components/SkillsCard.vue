@@ -23,14 +23,14 @@ export default {
 
 <style scoped>
 .card {
-  width: 18rem; /* Fixed width */
-  height: 25rem; /* Fixed height */
+  width: 18rem;
+  height: 25rem;
   background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
   color: black;
-  overflow: hidden; /* Hide excess content */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -38,7 +38,7 @@ export default {
 .card-header {
   padding: 10px;
   text-align: center;
-  flex-shrink: 0; /* Maintain header size */
+  flex-shrink: 0;
 }
 
 .card-image {
@@ -47,8 +47,8 @@ export default {
 
 .card-body {
   padding: 15px;
-  overflow-y: auto; /* Scrollable content */
-  flex-grow: 1; /* Take up remaining space */
+  overflow-y: auto;
+  flex-grow: 1;
 }
 
 .card:hover{
@@ -56,26 +56,25 @@ export default {
   cursor: pointer;
 }
 
-/* Media queries for responsiveness */
 
 @media (max-width: 768px) {
   .card {
-    width: 80vw; /* Responsive width */
-    height: 40vw; /* Responsive height */
+    width: 80vw;
+    height: 40vw;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-    width: 90vw; /* Responsive width */
-    height: 50vw; /* Responsive height */
+    width: 90vw;
+    height: 50vw;
   }
 }
 
 @media (max-width: 300px) {
   .card {
-    width: 100vw; /* Responsive width */
-    height: 60vw; /* Responsive height */
+    width: 100vw;
+    height: 60vw;
   }
 }
 </style>
