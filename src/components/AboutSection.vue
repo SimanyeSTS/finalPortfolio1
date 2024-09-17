@@ -116,9 +116,6 @@ p {
   p {
     font-size: 90%;
   }
-  h1 {
-    font-size: 120%;
-  }
 }
 
 @media (width <= 480px) {
@@ -133,9 +130,6 @@ p {
   }
   p {
     font-size: 100%;
-  }
-  h1 {
-    font-size: 130%;
   }
 }
 

@@ -10,7 +10,12 @@
           Hi, my name is <br />
           <span class="name">Simanye Somdaka</span>
         </h1>
-        <h2>And I am an Aspiring {{ currentJobTitle }}.</h2>
+        <h2>
+          And I am an Aspiring 
+          <div class="job-title-container">
+            <span class="job-title">{{ displayJobTitle }}</span>
+          </div>
+        </h2>
         <div class="buttons-container">
           <button @click="downloadResume" class="btn btn-primary">
             <i class="bi bi-file-earmark-person-fill"></i>Resume</button>
@@ -22,15 +27,23 @@
   </section>
   <div v-else>Loading...</div>
 </template>
+
 <script>
 import { mapState } from 'vuex';
+
 export default {
   name: 'HomeSection',
   data() {
     return {
       currentJobTitle: '',
       currentJobImage: '',
-      jobTitleIndex: 0
+      jobTitleIndex: 0,
+      displayJobTitle: '',
+      typing: true, 
+      typingSpeed: 150,
+      erasingSpeed: 100,
+      delayBeforeErase: 1500,
+      delayBeforeType: 500,
     };
   },
   computed: {
@@ -44,7 +57,7 @@ export default {
         if (newVal && newVal.length > 0) {
           this.currentJobTitle = newVal[this.jobTitleIndex].title;
           this.currentJobImage = newVal[this.jobTitleIndex].image;
-          this.startJobTitleRotation();
+          this.typeJobTitle();
         }
       },
       immediate: true
@@ -54,13 +67,42 @@ export default {
     this.$store.dispatch('fetchJobTitle');
   },
   methods: {
-    startJobTitleRotation() {
-      setInterval(() => {
-        this.jobTitleIndex = (this.jobTitleIndex + 1) % this.jobTitles.length;
-        this.currentJobTitle = this.jobTitles[this.jobTitleIndex].title;
-        this.currentJobImage = this.jobTitles[this.jobTitleIndex].image;
-      }, 5000);
+    typeJobTitle() {
+      let fullTitle = this.jobTitles[this.jobTitleIndex].title;
+      let currentText = '';
+      let index = 0;
+
+      const typeInterval = setInterval(() => {
+        if (index < fullTitle.length) {
+          currentText += fullTitle[index];
+          this.displayJobTitle = currentText;
+          index++;
+        } else {
+          clearInterval(typeInterval);
+          setTimeout(() => this.eraseJobTitle(), this.delayBeforeErase);
+        }
+      }, this.typingSpeed);
     },
+
+    eraseJobTitle() {
+      let currentText = this.displayJobTitle;
+      let index = currentText.length;
+
+      const eraseInterval = setInterval(() => {
+        if (index > 0) {
+          currentText = currentText.substring(0, index - 1);
+          this.displayJobTitle = currentText;
+          index--;
+        } else {
+          clearInterval(eraseInterval);
+          this.jobTitleIndex = (this.jobTitleIndex + 1) % this.jobTitles.length;
+          this.currentJobTitle = this.jobTitles[this.jobTitleIndex].title;
+          this.currentJobImage = this.jobTitles[this.jobTitleIndex].image;
+          setTimeout(() => this.typeJobTitle(), this.delayBeforeType);
+        }
+      }, this.erasingSpeed);
+    },
+
     downloadResume() {
       window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing');
     },
@@ -68,10 +110,30 @@ export default {
       window.open('https://www.youtube.com/@simanyesomdaka3513');
     }
   }
-};
+}
 </script>
 
 <style scoped>
+.job-title-container {
+  height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.job-title {
+  display: inline-block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
 .home-section {
   display: flex;
   align-items: center;
@@ -147,6 +209,7 @@ h1 {
   background-color: rgb(103, 103, 103) !important;
   color: white !important;
 }
+
 
 @media (width <= 300px) {
   .home-section {
