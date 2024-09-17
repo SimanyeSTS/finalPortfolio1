@@ -30,7 +30,7 @@
         <div v-for="skillEntry in resume && resume.Skills" :key="skillEntry.id">
           <template v-if="skillEntry.logo">
             <div class="skills-card">
-              <SkillsCard :image="skillEntry.logo">
+              <SkillsCard class="skill" :image="skillEntry.logo">
                 <template v-slot:default>
                   <p>{{ skillEntry.description }}</p>
                 </template>

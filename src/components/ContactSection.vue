@@ -15,7 +15,14 @@
   Simanye Somdaka
 </p>
       <p><i class="bi bi-telephone-fill icon"></i>+27 73 063 3069</p>
-      <p><i class="bi bi-geo-alt-fill icon"></i>Weltevreden Valley North, Cape Town, Western Cape</p>
+
+      <p>
+            <i class="bi bi-geo-alt-fill icon"></i>
+            <span class="spacing">Weltevreden Valley North, <br> 
+                <span class="indent">Cape Town,</span> <br> 
+                <span class="indent">Western Cape</span>
+            </span>
+        </p>
     </div>
     <form @submit.prevent="handleSubmit" class="contact-form">
       <div class="form-group">
@@ -124,6 +131,13 @@ export default {
 .label {
   display: block;
   margin-bottom: 0.5rem;
+}
+.spacing {
+  margin-left: 2%; 
+}
+
+.indent {
+  margin-left: 8%;
 }
 input[type="text"],
 input[type="email"],
