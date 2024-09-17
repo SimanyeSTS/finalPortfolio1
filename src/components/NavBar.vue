@@ -1,9 +1,8 @@
 <template>
     <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#home">
-                <img src="https://simanyests.github.io/Images/images/Screenshot 2024-05-07 141157.png" alt="logo" class="img-fluid"
-                    loading="lazy">
+        <div class="container-fluid p-0">
+            <a class="navbar-brand p-0" href="#home">
+                <img src="https://simanyests.github.io/Images/images/Screenshot 2024-05-07 141157.png" alt="logo" class="img-fluid" loading="lazy">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -14,38 +13,27 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'home' }" href="#home" @click="closeNavbar">
-                            <i class="bi bi-house-door"></i>
-                            Home
+                            <i class="bi bi-house-door"></i> Home
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'about' }" href="#about" @click="closeNavbar">
-                            <i class="bi bi-person"></i>
-                            About
+                            <i class="bi bi-person"></i> About
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'resume' }" href="#resume" @click="closeNavbar">
-                            <i class="bi bi-file-earmark-person"></i>
-                            Resume
+                            <i class="bi bi-file-earmark-person"></i> Resume
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'projects' }" href="#projects" @click="closeNavbar">
-                            <i class="bi bi-puzzle"></i>
-                            Projects
+                            <i class="bi bi-puzzle"></i> Projects
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" :class="{ 'active': activeSection === 'testimonials' }" href="#testimonials" @click="closeNavbar">
-                            <i class="bi bi-stars"></i>
-                            Testimonials
-                        </a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'contact' }" href="#contact" @click="closeNavbar">
-                            <i class="bi bi-person-lines-fill"></i>
-                            Reach me
+                            <i class="bi bi-person-lines-fill"></i> Reach me
                         </a>
                     </li>
                 </ul>

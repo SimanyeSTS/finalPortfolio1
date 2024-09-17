@@ -25,7 +25,6 @@
       </div>
     </div>
   </section>
-  <div v-else>Loading...</div>
 </template>
 
 <script>
@@ -273,10 +272,13 @@ h1 {
     flex-direction: column;
     align-items: center;
   }
-  .image-container, .text-container {
+.text-container {
     flex: 0;
     width: 100%;
     margin-bottom: 20px;
+  }
+  .image-container{
+    margin-left: 20% !important;
   }
   .profile-image {
     width: 80%;
