@@ -3,26 +3,26 @@
   <div class="contact-section">
     <div class="contact-info">
       <p>
-  <a href="mailto:simanyesomdaka@gmail.com">
-    <i class="bi bi-envelope-at-fill icon"></i>
-  </a>
-  simanyesomdaka@gmail.com
-</p>
-<p>
-  <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank">
-    <i class="bi bi-linkedin icon"></i>
-  </a>
-  Simanye Somdaka
-</p>
+        <a href="mailto:simanyesomdaka@gmail.com" style="text-decoration: none; color: white;">
+          <i class="bi bi-envelope-at-fill icon"></i>
+          simanyesomdaka@gmail.com
+        </a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank" style="text-decoration: none; color: white;">
+          <i class="bi bi-linkedin icon"></i>
+          LinkedIn: Simanye Somdaka
+        </a>
+      </p>
       <p><i class="bi bi-telephone-fill icon"></i>+27 73 063 3069</p>
 
       <p>
-            <i class="bi bi-geo-alt-fill icon"></i>
-            <span class="spacing">Weltevreden Valley North, <br> 
-                <span class="indent">Cape Town,</span> <br> 
-                <span class="indent">Western Cape</span>
-            </span>
-        </p>
+        <i class="bi bi-geo-alt-fill icon"></i>
+        <span class="spacing">Weltevreden Valley North, <br> 
+          <span class="indent">Cape Town,</span> <br> 
+          <span class="indent">Western Cape</span>
+        </span>
+      </p>
     </div>
     <form @submit.prevent="handleSubmit" class="contact-form">
       <div class="form-group">
