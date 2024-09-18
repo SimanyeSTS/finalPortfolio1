@@ -87,6 +87,7 @@ export default {
   padding: 10px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  font-size: large;
 }
 
 .image-container:hover .card-image {
@@ -111,12 +112,28 @@ export default {
   .card {
     font-size: 0.9em;
   }
+  .title {
+  color: #ff8c00;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: medium;
+}
 }
 
 @media (max-width: 480px) {
   .card {
     font-size: 0.8em;
   }
+  .title {
+  color: #ff8c00;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: small;
+}
 }
 
 @media (max-width: 300px) {
@@ -129,5 +146,13 @@ export default {
   .card-body {
     padding: 5px;
   }
+  .title {
+  color: #ff8c00;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: smaller;
+}
 }
 </style>
