@@ -1,7 +1,7 @@
 <template>
 <div>
   <h1>
-    Resume
+    Education & Experience
     <span>
       <button @click="downloadResume" class="btn btn-primary">
         <i class="bi bi-file-earmark-arrow-down"></i>
@@ -13,38 +13,17 @@
   </div>
   <div v-else class="resume">
     <section class="education">
-      <h2>Education:</h2>
-      <div class="grid-container">
-        <div v-for="educationEntry in resume && resume.Education" :key="educationEntry.id" class="skills-card">
-          <SkillsCard :image="educationEntry.image">
-            <template v-slot:default>
-              <p>{{ educationEntry.description }}</p>
-            </template>
-          </SkillsCard>
-        </div>
-      </div>
-    </section>
-    <section class="skills">
-      <h2>Skills:</h2>
-      <div class="grid-container">
-        <div v-for="skillEntry in resume && resume.Skills" :key="skillEntry.id">
-          <template v-if="skillEntry.logo">
-            <div class="skills-card">
-              <SkillsCard class="skill" :image="skillEntry.logo">
-                <template v-slot:default>
-                  <p>{{ skillEntry.description }}</p>
-                </template>
-              </SkillsCard>
-            </div>
-          </template>
-          <template v-else>
-            <div class="skill-entry">
-              <p>{{ skillEntry.description }}</p>
-            </div>
-          </template>
-        </div>
-      </div>
-    </section>
+  <h2>Education:</h2>
+  <div class="grid-container">
+    <div v-for="educationEntry in resume && resume.Education" :key="educationEntry.id" class="skills-card">
+      <SkillsCard :image="educationEntry.image" :title="educationEntry.title" class="education-title">
+        <template v-slot:default>
+          <p>{{ educationEntry.description }}</p>
+        </template>
+      </SkillsCard>
+    </div>
+  </div>
+</section>
     <section class="extracurricular">
       <h2>Extracurricular Activities:</h2>
       <div v-for="activity in resume && resume['Extracurricular Activities']" :key="activity.id">
@@ -178,5 +157,9 @@ h1 {
   justify-content: center;
   align-items: center;
   min-height: 200px;
+}
+
+.education-title{
+  color: #ff8c00 !important;
 }
 </style>

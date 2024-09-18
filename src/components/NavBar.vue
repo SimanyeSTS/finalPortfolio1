@@ -23,7 +23,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'resume' }" href="#resume" @click="closeNavbar">
-                            <i class="bi bi-file-earmark-person"></i> Resume
+                            <i class="bi bi-file-earmark-person"></i> Education & Experience
                         </a>
                     </li>
                     <li class="nav-item">

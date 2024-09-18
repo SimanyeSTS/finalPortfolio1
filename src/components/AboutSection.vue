@@ -1,4 +1,4 @@
-<template>
+#ff8c00<template>
   <div>
     <SpinnerComp v-if="loading" />
     <div v-else>
@@ -8,8 +8,37 @@
           <div class="text-container">
             <p>{{ aboutText }}</p>
           </div>
-          <div class="image-container">
-            <img :src="profileImage" alt="Profile Picture" class="profile-image" loading="lazy"/>
+          <div class="skills-and-arrows">
+            <div class="skills-container">
+              <h3>Technical Skills:</h3>
+              <div class="skills-grid">
+                <div v-for="skillEntry in skillsWithLogo" :key="skillEntry.id" class="skill-card">
+                  <SkillsCard :image="skillEntry.logo" :title='skillEntry.title' class="small-card">
+                    <template v-slot:default>
+                      <p>{{ skillEntry['description-1'] }}</p>
+                      <p>{{ skillEntry['description-2'] }}</p>
+                      <p>{{ skillEntry['description-3'] }}</p>
+                    </template>
+                  </SkillsCard>
+                </div>
+              </div>
+              <div class="additional-skills">
+                <h3>Soft Skills:</h3>
+                <ul>
+                  <li v-for="skillEntry in skillsWithoutLogo" :key="skillEntry.id">
+                    {{ skillEntry.description }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="scroll-arrows visible">
+              <div class="up-arrow" @click="scrollUpSkills">
+                <i class="fas fa-arrow-up" style="color: orange;"></i>
+              </div>
+              <div class="down-arrow" @click="scrollDownSkills">
+                <i class="fas fa-arrow-down" style="color: orange;"></i>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -19,12 +48,18 @@
 
 <script>
 import SpinnerComp from '@/components/SpinnerComp.vue';
+import SkillsCard from '@/components/SkillsCard.vue';
 import { mapState } from 'vuex';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faArrowUp, faArrowDown);
 
 export default {
   name: 'AboutSection',
   components: {
-    SpinnerComp
+    SpinnerComp,
+    SkillsCard
   },
   data() {
     return {
@@ -33,30 +68,51 @@ export default {
   },
   computed: {
     ...mapState({
-      about: state => state.about
+      about: state => state.about,
+      resume: state => state.resume
     }),
     aboutText() {
       return this.about ? this.about[0].description : '';
     },
-    profileImage() {
-      return this.about ? this.about[0].image : '';
+    skillsWithLogo() {
+      return this.resume && this.resume.Skills ? this.resume.Skills.filter(skill => skill.logo) : [];
+    },
+    skillsWithoutLogo() {
+      return this.resume && this.resume.Skills ? this.resume.Skills.filter(skill => !skill.logo) : [];
     }
   },
   mounted() {
-    this.$store.dispatch('fetchAbout').then(() => {
+    Promise.all([this.$store.dispatch('fetchAbout'), this.$store.dispatch('fetchResume')]).then(() => {
       this.loading = false;
     });
-  }
+  },
+  methods: {
+  scrollUpSkills() {
+    const skillsContainer = document.querySelector('.skills-container');
+    skillsContainer.scrollTop -= 100; // Scroll up by 100 pixels
+    skillsContainer.scroll({
+      top: skillsContainer.scrollTop,
+      behavior: 'smooth'
+    });
+  },
+  scrollDownSkills() {
+    const skillsContainer = document.querySelector('.skills-container');
+    skillsContainer.scrollTop += 100; // Scroll down by 100 pixels
+    skillsContainer.scroll({
+      top: skillsContainer.scrollTop,
+      behavior: 'smooth'
+    });
+  },
+}
 };
 </script>
 
 <style scoped>
 .about-section {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 50px;
-  background-color: transparent;
+  padding: 20px;
   color: white;
 }
 
@@ -72,87 +128,179 @@ export default {
   padding: 20px;
   text-align: center;
   margin-bottom: 5%;
+  font-size: 130%;
 }
 
-h1 {
+.skills-and-arrows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills-container {
+  flex: 1;
+  padding-left: 180px;
+  padding-bottom: 5%;
+  max-height: 600px;
+  overflow-y: auto; /* Show scrollbar */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.skill-card {
+  display: flex;
+  justify-content: center;
+  background-color: #36454F !important;
+  border-radius: 3%;
+}
+
+.additional-skills {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.additional-skills ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.additional-skills li {
+  margin-bottom: 10px;
+}
+
+h1, h3, h4 {
   color: white;
   text-align: center;
 }
 
-.image-container {
-  flex: 1;
-  margin-left: 10%;
-  padding-bottom: 10%;
-}
-
-.profile-image {
-  width: 70%;
-  height: auto;
-  border-radius: 10px;
-}
-
-p, h1 {
+p, h5 {
   font-weight: bold;
+  color: white;
 }
 
 p {
-  font-size: 120%;
+  font-size: 100%;
 }
 
-@media (width <= 300px) {
-  .about-section {
-    padding: 10px;
-  }
-  .container {
-    padding: 10px;
-  }
-  .text-container, .image-container {
-    padding: 10px;
-  }
-  .profile-image {
-    width: 50%;
-    margin: 10px auto;
-  }
-  p {
-    font-size: 90%;
-  }
+.small-card {
+  width: 100%;
+  height: auto;
+  font-size: 0.8em;
+  background-color: #36454F !important;
 }
 
-@media (width <= 480px) {
-  .about-section {
-    padding: 20px;
-  }
-  .text-container {
-    padding: 15px;
-  }
-  .image-container {
-    padding: 15px;
-  }
-  p {
-    font-size: 100%;
-  }
+.scroll-arrows {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  opacity: 1; /* Adjust opacity */
+  transition: opacity 0.2s ease;
 }
 
-@media (width <= 768px) {
-  .about-section {
-    flex-direction: column;
-  }
+.scroll-arrows.visible {
+  opacity: 1;
+}
+
+.up-arrow, .down-arrow {
+  cursor: pointer;
+  font-size: 24px;
+  transition: opacity 0.2s ease;
+}
+
+.up-arrow:hover, .down-arrow:hover {
+  opacity: 0.8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   .container {
     flex-direction: column;
+    font-size: small;
   }
-  .text-container, .image-container {
-    flex: 0;
+
+  .text-container, .skills-container {
+    flex: none;
     width: 100%;
+    font-size: small;
   }
-  .profile-image {
-    width: 80%;
-    margin: 20px auto;
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
-  .image-container {
-    order: 2;
+
+  .skills-container {
+    padding-left: 20px;
   }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 10px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  p {
+    font-size: small;
+  }
+
+  .skills-container {
+    overflow-y: visible; /* Remove scrollbar on mobile views */
+    max-height: none; /* Remove max-height on mobile views */
+    padding: 10px; /* Adjust padding on mobile views */
+    margin-bottom: 20px; /* Adjust margin on mobile views */
+  }
+}
+
+@media (max-width: 300px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-container {
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+
+  p {
+    font-size: 85%;
+  }
+
+  /* Adjust text-container for mobile */
   .text-container {
-    order: 1;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: small !important; /* Reduce font size */
+  }
+
+  .additional-skills {
+    margin-top: 10px;
+  }
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE and Edge */
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .scroll-arrows {
+    display: none;
   }
 }
 </style>
