@@ -46,6 +46,10 @@ export default {
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   color: black;
 }
 
@@ -94,6 +98,7 @@ export default {
   color: white !important;
 }
 .card:hover{
+  transform: scale(1.05);
   border: solid #ff8c00;
   cursor: pointer;
 }

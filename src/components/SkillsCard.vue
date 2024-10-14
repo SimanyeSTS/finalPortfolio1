@@ -88,6 +88,7 @@ export default {
   opacity: 0;
   transition: opacity 0.3s ease;
   font-size: large;
+  font-weight: bold;
 }
 
 .image-container:hover .card-image {

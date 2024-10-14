@@ -33,6 +33,15 @@
         </div>
       </div>
     </section>
+    <section class="employment">
+      <h2>Employment Experiencing:</h2>
+      <div v-for="experience in resume && resume['Employment Experience']" :key="experience.id">
+        <div class="exprience-entry">
+          <h3>{{ experience.title }}</h3>
+          <p>{{ experience.description   }}</p>
+        </div>
+      </div>
+    </section>
     <section class="volunteering">
       <h2>Volunteering Experience:</h2>
       <div v-for="experience in resume && resume['Volunteering Experience']" :key="experience.id">

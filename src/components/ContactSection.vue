@@ -11,7 +11,7 @@
       <p>
         <a href="https://www.linkedin.com/in/simanye-somdaka-6501712b2" target="_blank" style="text-decoration: none; color: white;">
           <i class="bi bi-linkedin icon"></i>
-          LinkedIn: Simanye Somdaka
+          Simanye Somdaka
         </a>
       </p>
       <p><i class="bi bi-telephone-fill icon"></i>+27 73 063 3069</p>
