@@ -1,4 +1,4 @@
-<template>
+#ff8c00<template>
   <div>
     <SpinnerComp v-if="loading" />
     <div v-else>
@@ -12,18 +12,10 @@
             <div class="skills-container">
               <h3>Technical Skills:</h3>
               <div class="skills-grid">
-                <div
-                  v-for="skillEntry in skillsWithLogo"
-                  :key="skillEntry.id"
-                  class="skill-card"
-                >
-                  <SkillsCard
-                    :image="skillEntry.logo"
-                    :title="skillEntry.title"
-                    class="small-card"
-                  >
+                <div v-for="skillEntry in skillsWithLogo" :key="skillEntry.id" class="skill-card">
+                  <SkillsCard :image="skillEntry.logo" :title='skillEntry.title' class="small-card">
                     <template v-slot:default>
-                      <h6>{{ skillEntry.skill }}</h6>
+                      <h6>{{ skillEntry['skill'] }}</h6>
                       <p>{{ skillEntry['description-1'] }}</p>
                       <p>{{ skillEntry['description-2'] }}</p>
                       <p>{{ skillEntry['description-3'] }}</p>
@@ -84,42 +76,35 @@ export default {
       return this.about ? this.about[0].description : '';
     },
     skillsWithLogo() {
-      return this.resume && this.resume.Skills
-        ? this.resume.Skills.filter(skill => skill.logo)
-        : [];
+      return this.resume && this.resume.Skills ? this.resume.Skills.filter(skill => skill.logo) : [];
     },
     skillsWithoutLogo() {
-      return this.resume && this.resume.Skills
-        ? this.resume.Skills.filter(skill => !skill.logo)
-        : [];
+      return this.resume && this.resume.Skills ? this.resume.Skills.filter(skill => !skill.logo) : [];
     }
   },
   mounted() {
-    Promise.all([
-      this.$store.dispatch('fetchAbout'),
-      this.$store.dispatch('fetchResume')
-    ]).then(() => {
+    Promise.all([this.$store.dispatch('fetchAbout'), this.$store.dispatch('fetchResume')]).then(() => {
       this.loading = false;
     });
   },
   methods: {
-    scrollUpSkills() {
-      const skillsContainer = document.querySelector('.skills-container');
-      skillsContainer.scrollTop -= 100; // Scroll up by 100 pixels
-      skillsContainer.scroll({
-        top: skillsContainer.scrollTop,
-        behavior: 'smooth'
-      });
-    },
-    scrollDownSkills() {
-      const skillsContainer = document.querySelector('.skills-container');
-      skillsContainer.scrollTop += 100; // Scroll down by 100 pixels
-      skillsContainer.scroll({
-        top: skillsContainer.scrollTop,
-        behavior: 'smooth'
-      });
-    }
-  }
+  scrollUpSkills() {
+    const skillsContainer = document.querySelector('.skills-container');
+    skillsContainer.scrollTop -= 100; // Scroll up by 100 pixels
+    skillsContainer.scroll({
+      top: skillsContainer.scrollTop,
+      behavior: 'smooth'
+    });
+  },
+  scrollDownSkills() {
+    const skillsContainer = document.querySelector('.skills-container');
+    skillsContainer.scrollTop += 100; // Scroll down by 100 pixels
+    skillsContainer.scroll({
+      top: skillsContainer.scrollTop,
+      behavior: 'smooth'
+    });
+  },
+}
 };
 </script>
 
@@ -150,7 +135,6 @@ export default {
 .skills-and-arrows {
   display: flex;
   justify-content: space-between;
-  flex: 1;
 }
 
 .skills-container {
@@ -170,7 +154,7 @@ export default {
 .skill-card {
   display: flex;
   justify-content: center;
-  background-color: #36454f !important;
+  background-color: #36454F !important;
   border-radius: 3%;
 }
 
@@ -189,17 +173,13 @@ export default {
   margin-bottom: 10px;
 }
 
-h1,
-h3,
-h4,
-h6 {
+h1, h3, h4, h6 {
   color: white;
   text-align: center;
   font-weight: bold;
 }
 
-p,
-h5 {
+p, h5 {
   font-weight: bold;
   color: white;
 }
@@ -212,7 +192,7 @@ p {
   width: 100%;
   height: auto;
   font-size: 0.8em;
-  background-color: #36454f !important;
+  background-color: #36454F !important;
 }
 
 .scroll-arrows {
@@ -231,87 +211,70 @@ p {
   opacity: 1;
 }
 
-.up-arrow,
-.down-arrow {
+.up-arrow, .down-arrow {
   cursor: pointer;
   font-size: 24px;
   transition: opacity 0.2s ease;
 }
 
-.up-arrow:hover,
-.down-arrow:hover {
+.up-arrow:hover, .down-arrow:hover {
   opacity: 0.8;
 }
 
-/* Media query for widths between 996px and 1244px */
+/* Responsive styles */
+/* Media query for 996px to 1244px width */
 @media (min-width: 996px) and (max-width: 1244px) {
   .container {
-    flex-direction: row; /* Ensure side-by-side layout */
-    align-items: flex-start;
-    max-width: 1200px; /* Maintain max-width */
+    display: flex;
+    flex-wrap: nowrap; /* Ensure no wrapping occurs */
+    align-items: flex-start; /* Align containers to the top */
+    justify-content: space-between; /* Ensure even spacing between elements */
   }
 
   .text-container {
-    flex: 1;
-    padding: 15px;
-    text-align: left; /* Align text to the left for readability */
-    font-size: 120%; /* Slightly reduce font size */
+    flex: 0 0 45%; /* Set a fixed width percentage */
+    padding: 10px 20px; /* Adjust padding to prevent overflow */
+    font-size: 1.2em; /* Adjust font size */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
   }
 
   .skills-and-arrows {
-    flex: 1;
-    flex-direction: row; /* Keep skills and arrows side by side */
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-top: 0; /* Remove any top margin */
+    flex: 0 0 45%; /* Set a fixed width percentage */
+    display: flex;
+    justify-content: space-between; /* Space between skills and arrows */
   }
 
   .skills-container {
-    padding-left: 60px; /* Reduce padding to prevent overflow */
-    padding-bottom: 20px;
-    max-height: 600px; /* Adjust max-height if necessary */
-    width: calc(100% - 40px); /* Adjust width to accommodate arrows */
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px; /* Slightly increase gap for better spacing */
+    width: 80%; /* Adjust width of the skills container */
+    padding-left: 10px; /* Reduce left padding */
+    max-height: 600px; /* Set max height */
+    overflow-y: auto; /* Enable scrolling if necessary */
   }
 
   .scroll-arrows {
-    margin-left: 20px; /* Space between skills and arrows */
-    top: 0; /* Reset top positioning */
-    transform: none; /* Remove translateY */
-    height: auto; /* Let height adjust based on content */
-    justify-content: flex-start; /* Align arrows at the top */
+    width: 20%; /* Adjust the width of the arrows container */
+    display: flex;
+    flex-direction: column; /* Keep arrows vertical */
+    justify-content: flex-end; /* Move arrows to the bottom */
+    margin-top: 350px; /* Optional: Add margin to lower them further */
   }
 
-  /* Ensure scroll-arrows don't push the skills-container height */
-  .skills-and-arrows {
-    align-items: flex-start;
-  }
-}
-
-/* General improvements for screens between 768px and 996px */
-@media (min-width: 768px) and (max-width: 995px) {
-  .skills-container {
-    padding-left: 30px; /* Further reduce padding */
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  .up-arrow, .down-arrow {
+    margin-bottom: 10px; /* Add space between the arrows */
+    font-size: 24px;
+    cursor: pointer;
   }
 }
 
-/* Existing Responsive styles */
+
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
     font-size: small;
   }
 
-  .text-container,
-  .skills-and-arrows {
+  .text-container, .skills-container {
     flex: none;
     width: 100%;
     font-size: small;
@@ -323,10 +286,6 @@ p {
 
   .skills-container {
     padding-left: 20px;
-  }
-
-  .scroll-arrows {
-    display: none;
   }
 }
 
@@ -386,5 +345,11 @@ p {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .scroll-arrows {
+    display: none;
+  }
 }
 </style>

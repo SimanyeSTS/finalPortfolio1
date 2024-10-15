@@ -34,7 +34,7 @@
       </div>
     </section>
     <section class="employment">
-      <h2>Employment Experiencing:</h2>
+      <h2>Employment Experience:</h2>
       <div v-for="experience in resume && resume['Employment Experience']" :key="experience.id">
         <div class="exprience-entry">
           <h3>{{ experience.title }}</h3>
