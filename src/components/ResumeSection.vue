@@ -78,7 +78,7 @@ created() {
 },
 methods: {
   downloadResume() {
-    window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1tXSYh8UiUmeT27_EmQ4sm7ZOfr_CODbn/view?usp=sharing', '_blank');
   }
 }
 };

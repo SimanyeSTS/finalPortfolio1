@@ -103,7 +103,7 @@ export default {
     },
 
     downloadResume() {
-      window.open('https://drive.google.com/file/d/1Kvx3wcvvMgBis9nw-B2PGo760CPoUTKz/view?usp=sharing');
+      window.open('https://drive.google.com/file/d/1tXSYh8UiUmeT27_EmQ4sm7ZOfr_CODbn/view?usp=sharing');
     },
     viewVideoIntro() {
       window.open('https://www.youtube.com/@simanyesomdaka3513');
