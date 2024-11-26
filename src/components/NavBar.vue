@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid p-0">
             <a class="navbar-brand p-0" href="#home">
-                <img src="https://simanyests.github.io/Images/images/Screenshot 2024-05-07 141157.png" alt="logo" class="img-fluid" loading="lazy">
+                <img src="https://i.postimg.cc/gJWKWrGT/Simanye-Somdaka-s-logo-1.png" alt="logo" class="img-fluid" loading="lazy">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -63,6 +63,7 @@ nav {
 
 .navbar-toggler {
     border-color: black;
+    margin-right: 2%;
 }
 
 .navbar-toggler-icon {
@@ -74,8 +75,8 @@ nav {
 }
 
 img[alt='logo'] {
-    width: 5rem;
-    height: 3rem;
+    width: 7rem;
+    height: 5rem;
 }
 </style>
 

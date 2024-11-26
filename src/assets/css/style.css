@@ -9,7 +9,9 @@
     box-sizing: border-box;
 }
 
-
+body {
+  overflow-x: hidden;
+}
 
 
 body {
@@ -20,6 +22,6 @@ body {
 }
 
 section {
-  scroll-margin-block: 45px;
+  scroll-margin-block: 80px;
 }
 
