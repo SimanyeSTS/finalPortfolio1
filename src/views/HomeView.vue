@@ -81,7 +81,7 @@ export default {
   border-top: 0px solid #ff8c00 !important;
   border-color: #ff8c00 !important;
   width: 100vw !important;
-  margin: 0 !important;
+  margin: -1px !important;
   position: relative !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
