@@ -5,10 +5,13 @@
                 <img src="https://i.postimg.cc/ZKXq1Gx9/Screenshot-2024-11-29-102725.png" alt="logo" class="img-fluid" loading="lazy">
             </a>
             <button class="navbar-toggler" type="button" @click="toggleNavbar" aria-controls="navbarSupportedContent" :aria-expanded="isNavbarOpen" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" :class="{'d-none': isNavbarOpen}"></span>
-                <span class="navbar-toggler-icon-x" v-if="isNavbarOpen"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" :class="{ show: isNavbarOpen }">
+        <div class="hamburger-icon" :class="{ 'is-active': isNavbarOpen }">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" :class="{ show: isNavbarOpen }">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" :class="{ 'active': activeSection === 'home' }" href="#home" @click="closeNavbar">
@@ -63,6 +66,8 @@ nav {
 .navbar-toggler {
     border-color: black;
     margin-right: 2%;
+    height: 40px;
+    padding: 0.5rem;
 }
 
 .navbar-toggler-icon {
@@ -107,6 +112,40 @@ nav {
 img[alt='logo'] {
     width: 7rem;
     height: 5rem;
+}
+
+.hamburger-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-icon .line {
+  width: 100%;
+  height: 2.4px;
+  background-color: black;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.hamburger-icon.is-active .line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger-icon.is-active .line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-icon.is-active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+#navbarSupportedContent {
+    margin-left: 35%;
 }
 </style>
 
