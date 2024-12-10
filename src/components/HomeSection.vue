@@ -168,7 +168,7 @@ h1 {
 }
 
 .name {
-  color: white;
+  color: black;
   font-weight: bold;
   display: block;
   margin-top: 0.5rem;
@@ -187,7 +187,7 @@ h2 {
 }
 
 .job-title {
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: clamp(1.2rem, 3vw, 2rem);
 }

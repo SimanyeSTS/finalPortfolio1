@@ -1,44 +1,44 @@
-#ff8c00<template>
+<template>
   <div>
     <SpinnerComp v-if="loading" />
-    <div v-else>
-      <h1>About</h1>
+    <div v-else class="about-wrapper">
+      <h1 class="main-title">About</h1>
       <section class="about-section">
         <div class="container">
           <div class="text-container">
-            <p>{{ aboutText }}</p>
+            <p class="about-text">{{ aboutText }}</p>
           </div>
           <div class="skills-and-arrows">
             <div class="skills-container">
-              <h3>Technical Skills:</h3>
+              <h3 class="skills-title">Technical Skills:</h3>
               <div class="skills-grid">
                 <div v-for="skillEntry in skillsWithLogo" :key="skillEntry.id" class="skill-card">
                   <SkillsCard :image="skillEntry.logo" :title='skillEntry.title' class="small-card">
                     <template v-slot:default>
-                      <h6>{{ skillEntry['skill'] }}</h6>
-                      <p>{{ skillEntry['description-1'] }}</p>
-                      <p>{{ skillEntry['description-2'] }}</p>
-                      <p>{{ skillEntry['description-3'] }}</p>
+                      <h6 class="skill-name">{{ skillEntry['skill'] }}</h6>
+                      <p class="skill-desc">{{ skillEntry['description-1'] }}</p>
+                      <p class="skill-desc">{{ skillEntry['description-2'] }}</p>
+                      <p class="skill-desc">{{ skillEntry['description-3'] }}</p>
                     </template>
                   </SkillsCard>
                 </div>
               </div>
               <div class="additional-skills">
-                <h3>Soft Skills:</h3>
-                <ul>
-                  <li v-for="skillEntry in skillsWithoutLogo" :key="skillEntry.id">
+                <h3 class="skills-title">Soft Skills:</h3>
+                <ul class="soft-skills-list">
+                  <li v-for="skillEntry in skillsWithoutLogo" :key="skillEntry.id" class="soft-skill-item">
                     {{ skillEntry.description }}
                   </li>
                 </ul>
               </div>
             </div>
             <div class="scroll-arrows visible">
-              <div class="up-arrow" @click="scrollUpSkills">
-                <i class="fas fa-arrow-up" style="color: orange;"></i>
-              </div>
-              <div class="down-arrow" @click="scrollDownSkills">
-                <i class="fas fa-arrow-down" style="color: orange;"></i>
-              </div>
+              <button class="arrow-btn up-arrow" @click="scrollUpSkills" aria-label="Scroll Up">
+                <i class="fas fa-arrow-up"></i>
+              </button>
+              <button class="arrow-btn down-arrow" @click="scrollDownSkills" aria-label="Scroll Down">
+                <i class="fas fa-arrow-down"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -83,37 +83,50 @@ export default {
     }
   },
   mounted() {
-    Promise.all([this.$store.dispatch('fetchAbout'), this.$store.dispatch('fetchResume')]).then(() => {
+    Promise.all([
+      this.$store.dispatch('fetchAbout'),
+      this.$store.dispatch('fetchResume')
+    ]).then(() => {
       this.loading = false;
     });
   },
   methods: {
-  scrollUpSkills() {
-    const skillsContainer = document.querySelector('.skills-container');
-    skillsContainer.scrollTop -= 100; // Scroll up by 100 pixels
-    skillsContainer.scroll({
-      top: skillsContainer.scrollTop,
-      behavior: 'smooth'
-    });
-  },
-  scrollDownSkills() {
-    const skillsContainer = document.querySelector('.skills-container');
-    skillsContainer.scrollTop += 100; // Scroll down by 100 pixels
-    skillsContainer.scroll({
-      top: skillsContainer.scrollTop,
-      behavior: 'smooth'
-    });
-  },
-}
+    scrollUpSkills() {
+      const skillsContainer = document.querySelector('.skills-container');
+      skillsContainer.scroll({
+        top: skillsContainer.scrollTop - 150,
+        behavior: 'smooth'
+      });
+    },
+    scrollDownSkills() {
+      const skillsContainer = document.querySelector('.skills-container');
+      skillsContainer.scroll({
+        top: skillsContainer.scrollTop + 150,
+        behavior: 'smooth'
+      });
+    }
+  }
 };
 </script>
 
 <style scoped>
+.about-wrapper {
+  min-height: 100vh;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.main-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
 .about-section {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 20px;
   color: white;
 }
 
@@ -121,192 +134,181 @@ export default {
   display: flex;
   max-width: 1200px;
   width: 100%;
+  gap: clamp(1rem, 4vw, 3rem);
   flex-wrap: wrap;
 }
 
 .text-container {
-  flex: 1;
-  padding: 20px;
+  flex: 1 1 400px;
+  padding: clamp(1rem, 3vw, 2rem);
   text-align: center;
-  margin-bottom: 5%;
-  font-size: 130%;
+}
+
+.about-text {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  line-height: 1.6;
+  font-weight: 500;
+  color: white;
 }
 
 .skills-and-arrows {
+  flex: 1 1 400px;
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
 .skills-container {
   flex: 1;
-  padding-left: 180px;
-  padding-bottom: 5%;
   max-height: 600px;
-  overflow-y: auto; /* Show scrollbar */
+  overflow-y: auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  padding-right: 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ff8c00 transparent;
+}
+
+.skills-container::-webkit-scrollbar {
+  width: 6px;
+  display: block;
+}
+
+.skills-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+  background-color: #ff8c00;
+  border-radius: 3px;
+}
+
+.skills-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin-bottom: 2rem;
 }
 
 .skill-card {
-  display: flex;
-  justify-content: center;
-  background-color: #36454F !important;
-  border-radius: 3%;
+  background-color: #36454F;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.additional-skills {
-  margin-top: 20px;
-  text-align: left;
-  font-weight: bold;
-}
-
-.additional-skills ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.additional-skills li {
-  margin-bottom: 10px;
-}
-
-h1, h3, h4, h6 {
-  color: white;
-  text-align: center;
-  font-weight: bold;
-}
-
-p, h5 {
-  font-weight: bold;
-  color: white;
-}
-
-p {
-  font-size: 100%;
+.skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
 }
 
 .small-card {
   width: 100%;
-  height: auto;
-  font-size: 0.8em;
+  height: 100%;
+  padding: clamp(0.5rem, 2vw, 1rem);
   background-color: #36454F !important;
 }
 
-.scroll-arrows {
+.skill-name {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: #ff8c00;
+  margin-bottom: 0.5rem;
+}
+
+.skill-desc {
+  font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+  color: white;
+  margin: 0.25rem 0;
+}
+
+.additional-skills {
+  margin-top: 2rem;
+}
+
+.soft-skills-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.soft-skill-item {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+}
+
+.soft-skill-item::before {
+  content: "•";
+  color: #ff8c00;
+  position: absolute;
+  left: 0;
+}
+
+.scroll-arrows {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100px;
-  opacity: 1; /* Adjust opacity */
-  transition: opacity 0.2s ease;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.scroll-arrows.visible {
-  opacity: 1;
-}
-
-.up-arrow, .down-arrow {
+.arrow-btn {
+  background: transparent;
+  border: none;
   cursor: pointer;
-  font-size: 24px;
-  transition: opacity 0.2s ease;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: #ff8c00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.up-arrow:hover, .down-arrow:hover {
-  opacity: 0.8;
+.arrow-btn:hover {
+  background: rgba(255, 140, 0, 0.1);
+  transform: scale(1.1);
 }
 
-/* Responsive styles */
-/* Media query for 996px to 1244px width */
-@media (min-width: 996px) and (max-width: 1244px) {
-  .container {
-    display: flex;
-    flex-wrap: nowrap; /* Ensure no wrapping occurs */
-    align-items: flex-start; /* Align containers to the top */
-    justify-content: space-between; /* Ensure even spacing between elements */
-  }
-
-  .text-container {
-    flex: 0 0 45%; /* Set a fixed width percentage */
-    padding: 10px 20px; /* Adjust padding to prevent overflow */
-    font-size: 1.2em; /* Adjust font size */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
-  }
-
-  .skills-and-arrows {
-    flex: 0 0 45%; /* Set a fixed width percentage */
-    display: flex;
-    justify-content: space-between; /* Space between skills and arrows */
-  }
-
-  .skills-container {
-    width: 80%; /* Adjust width of the skills container */
-    padding-left: 10px; /* Reduce left padding */
-    max-height: 600px; /* Set max height */
-    overflow-y: auto; /* Enable scrolling if necessary */
-  }
-
-  .scroll-arrows {
-    width: 20%; /* Adjust the width of the arrows container */
-    display: flex;
-    flex-direction: column; /* Keep arrows vertical */
-    justify-content: flex-end; /* Move arrows to the bottom */
-    margin-top: 350px; /* Optional: Add margin to lower them further */
-  }
-
-  .up-arrow, .down-arrow {
-    margin-bottom: 10px; /* Add space between the arrows */
-    font-size: 24px;
-    cursor: pointer;
-  }
-}
-
-
-
-@media (max-width: 768px) {
+@media (max-width: 996px) {
   .container {
     flex-direction: column;
-    font-size: small;
   }
-
-  .text-container, .skills-container {
-    flex: none;
-    width: 100%;
-    font-size: small;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
+  
   .skills-container {
-    padding-left: 20px;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-arrows {
+    display: none;
+  }
+  
+  .skills-container {
+    padding: 1rem;
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-  .about-section {
-    padding: 10px;
+  .about-wrapper {
+    padding: 0.5rem;
   }
-
+  
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
-
-  p {
-    font-size: small;
-  }
-
-  .skills-container {
-    overflow-y: visible; /* Remove scrollbar on mobile views */
-    max-height: none; /* Remove max-height on mobile views */
-    padding: 10px; /* Adjust padding on mobile views */
-    margin-bottom: 20px; /* Adjust margin on mobile views */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
 
@@ -314,42 +316,9 @@ p {
   .skills-grid {
     grid-template-columns: 1fr;
   }
-
-  .skills-container {
-    padding-left: 10px;
-    padding-bottom: 20px;
-  }
-
-  p {
-    font-size: 85%;
-  }
-
-  /* Adjust text-container for mobile */
+  
   .text-container {
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: small !important; /* Reduce font size */
-  }
-
-  .additional-skills {
-    margin-top: 10px;
-  }
-}
-
-/* Hide scrollbar */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* For IE and Edge */
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@media (max-width: 768px) {
-  .scroll-arrows {
-    display: none;
+    padding: 0.5rem;
   }
 }
 </style>
