@@ -23,7 +23,7 @@
                             <i class="bi bi-person"></i> About
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="resume-link">
                         <a class="nav-link" :class="{ 'active': activeSection === 'resume' }" href="#resume" @click="closeNavbar">
                             <i class="bi bi-file-earmark-person"></i> Education & Experience
                         </a>
@@ -145,7 +145,25 @@ img[alt='logo'] {
 }
 
 #navbarSupportedContent {
-    margin-left: 35%;
+    padding-left: 35%;
+}
+
+@media (width <= 300px) {
+    #resume-link {
+    margin-right: 20%!important;
+}
+}
+
+@media (width <= 480px) {
+    #resume-link {
+        margin-right: 50%!important;
+}
+}
+
+@media (width <= 768px) {
+    /* #resume-link {
+        margin-right: 20%!important;
+} */
 }
 </style>
 

@@ -1,5 +1,4 @@
 <template>
-  <h1>Home</h1>
   <section v-if="jobTitles.length > 0" class="home-section">
     <div class="container">
       <div class="image-container">
@@ -11,16 +10,18 @@
           <span class="name">Simanye Somdaka</span>
         </h1>
         <h2>
-          And I am an Aspiring 
+          And I am 
           <div class="job-title-container">
             <span class="job-title">{{ displayJobTitle }}</span>
           </div>
         </h2>
         <div class="buttons-container">
           <button @click="downloadResume" class="btn btn-primary">
-            <i class="bi bi-file-earmark-person-fill"></i>Resume</button>
+            <i class="bi bi-file-earmark-person-fill"></i>Resume
+          </button>
           <button @click="viewVideoIntro" class="btn btn-secondary">
-            <i class="bi bi-camera-reels-fill"></i>Video Intro</button>
+            <i class="bi bi-camera-reels-fill"></i>Video Intro
+          </button>
         </div>
       </div>
     </div>
@@ -113,80 +114,106 @@ export default {
 </script>
 
 <style scoped>
-.job-title-container {
-  height: 2.4em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.job-title {
-  display: inline-block;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  max-width: 100%;
-  text-align: center;
-}
-
-h2 {
-  margin-bottom: 0;
-}
-
 .home-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  min-height: 100vh;
+  padding: clamp(1rem, 5vw, 3rem);
   background-color: transparent;
   color: white;
-}
-
-.text-container {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-  margin-top: 10%;
-}
-
-h1 {
-  color: white;
-  text-align: center;
-  font-weight: bold;
 }
 
 .container {
   display: flex;
   max-width: 1200px;
   width: 100%;
+  gap: clamp(1rem, 4vw, 3rem);
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
 .image-container {
   flex: 1;
-  padding: 20px;
-  padding-bottom: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-image {
-  width: 70%;
+  width: min(80%, 500px);
   height: auto;
-  border-radius: 10px;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+}
+
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: white;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0;
 }
 
 .name {
+  color: white;
   font-weight: bold;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin: 0;
+}
+
+.job-title-container {
+  height: 2.4em;
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.job-title {
+  color: white;
+  font-weight: bold;
+  font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
 .buttons-container {
-  margin-top: 20px;
+  display: flex;
+  gap: 1rem;
+  margin-top: clamp(1rem, 3vw, 2rem);
 }
 
 .btn {
-  margin-right: 10px;
-  padding: 10px 20px;
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn i {
+  font-size: 1.1em;
 }
 
 .btn-primary {
@@ -195,8 +222,9 @@ h1 {
 }
 
 .btn-primary:hover {
-  background-color: rgb(0, 85, 255) !important;
-  color: white !important;
+  background-color: rgb(0, 85, 255);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
@@ -205,91 +233,72 @@ h1 {
 }
 
 .btn-secondary:hover {
-  background-color: rgb(103, 103, 103) !important;
-  color: white !important;
+  background-color: rgb(103, 103, 103);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-
-@media (width <= 300px) {
-  .home-section {
-    padding: 10px;
-  }
+@media (width <= 768px) {
   .container {
-    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+
+  .image-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   .text-container {
-    padding: 10px;
+    width: 100%;
+    align-items: center;
   }
-  .image-container{
-    margin-left: 20% !important;
-  }
-  .profile-image {
-    width: 50%;
-    margin: 10px auto;
-  }
+
   .buttons-container {
-    padding: 10px;
-  }
-  .btn {
-    font-size: 12px;
-    padding: 5px 10px;
+    justify-content: center;
   }
 }
 
 @media (width <= 480px) {
-  .home-section {
-    padding: 20px;
-  }
-  .container {
-    padding: 20px;
-  }
-.text-container {
-    padding: 20px;
-  }
-  .image-container{
-    margin-left: 20% !important;
-  }
-  .profile-image {
-    width: 60%;
-    margin: 20px auto;
-  }
   .buttons-container {
-    padding: 20px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
   }
+
   .btn {
-    font-size: 14px;
-    padding: 5px 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-image {
+    width: min(90%, 300px);
   }
 }
 
-@media (width <= 768px) {
+@media (width <= 300px) {
   .home-section {
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
+    padding: 0.5rem;
   }
+
   .container {
-    flex-direction: column;
-    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
   }
-.text-container {
-    flex: 0;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .image-container{
-    margin-left: 20% !important;
-  }
+
   .profile-image {
-    width: 80%;
-    margin: 20px auto;
+    width: min(90%, 200px);
   }
+
   .buttons-container {
-    flex-direction: column;
-    align-items: center;
+    max-width: 200px;
   }
+
   .btn {
-    margin-bottom: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 }
 </style>
