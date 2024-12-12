@@ -78,6 +78,8 @@ export default {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {

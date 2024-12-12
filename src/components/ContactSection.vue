@@ -1,5 +1,7 @@
 <template>
   <h1>Reach Me</h1>
+  <p class="subtitle">I would love to hear from you, please do get in touch using the form below.</p>
+  
   <div class="contact-section">
     <div class="contact-info">
       <p>
@@ -15,7 +17,6 @@
         </a>
       </p>
       <p><i class="bi bi-telephone-fill icon"></i>+27 73 063 3069</p>
-
       <p>
         <i class="bi bi-geo-alt-fill icon"></i>
         <span class="spacing">Weltevreden Valley North, <br> 
@@ -24,6 +25,7 @@
         </span>
       </p>
     </div>
+
     <form @submit.prevent="handleSubmit" class="contact-form">
       <div class="form-group">
         <input placeholder="Your Name" type="text" id="name" v-model="form.name" required />
@@ -38,19 +40,18 @@
         <textarea placeholder="Your Message ;)" id="message" v-model="form.message" required></textarea>
       </div>
       <div class="button-group">
-        <button type="button" @click="clearForm" class="btn btn-primary">Clear</button>
         <button type="submit" class="btn btn-secondary">Send Message</button>
       </div>
       <p v-if="error" class="error-message">{{ error }}</p>
     </form>
   </div>
 </template>
+
 <script>
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
+
 export default {
-  components: {
-  },
   data() {
     return {
       form: {
@@ -76,9 +77,11 @@ export default {
         allowOutsideClick: false,
         allowEscapeKey: false,
       });
+
       const serviceID = 'service_8u7cma9';
       const templateID = 'template_s6i5hee';
       const userID = 'FMfCQcMPcCi742ypD';
+      
       emailjs.send(serviceID, templateID, this.form, userID)
         .then(() => {
           Swal.fire({
@@ -108,6 +111,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .contact-section {
   display: flex;
@@ -115,77 +119,66 @@ export default {
   justify-content: space-around;
   padding: 20px;
 }
+
 .contact-info {
   flex: 1;
   padding: 0 20px;
   max-width: 400px;
 }
+
 .contact-form {
   flex: 1;
   padding: 0 20px;
   max-width: 600px;
 }
+
 .form-group {
   margin-bottom: 1rem;
 }
-.label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
+
 .spacing {
   margin-left: 2%; 
 }
 
 .indent {
-  margin-left: 8%;
+  margin-left: 0%;
 }
+
 input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
   padding: 0.5rem;
-  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-weight: bold;
 }
+
 textarea {
   resize: vertical;
 }
-input[type="text"]:hover, input[type="email"]:hover, textarea:hover {
-  border: solid #ff8c00;
-}
+
 .button-group {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+
 button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   margin-left: 1rem;
   cursor: pointer;
-  background-color: #007BFF;
-  color: white;
+  background-color: white;
+  color: #ff8c00;
   border: none;
   border-radius: 4px;
-}
-.btn-primary {
-  background-color: white;
-  color: #ff8c00;
   font-weight: bold;
-}
-.btn-primary:hover{
-  background-color: rgb(0, 85, 255) !important;
-  color: white !important;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
 }
 
-.btn-secondary {
-  background-color: white;
-  color: #ff8c00;
-  font-weight: bold;
-}
-.btn-secondary:hover{
+.btn-secondary:hover {
   background-color: rgb(103, 103, 103) !important;
   color: white !important;
 }
@@ -195,39 +188,105 @@ button {
   font-weight: bold;
   margin-top: 0.5rem;
 }
-@media (max-width: 768px) {
-  .contact-section {
-    flex-direction: column;
-    align-items: center;
-  }
-  .contact-info,
-  .contact-form {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-}
-h1, p, label {
+
+h1 {
+  margin-top: 1%;
+  margin: 1%;
+  text-align: center;
   color: white;
   font-weight: bold;
 }
 
-h1 {
+.subtitle {
   text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
 }
 
-a {
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+  border: solid #ff8c00;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: flex-start;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  margin: 20px;
   color: white;
+  font-weight: bold;
+}
+
+.contact-info a {
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  color: white;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.icon {
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .bi {
   color: #ff8c00;
 }
 
-.icon {
-  margin-right: 10px;
+.bi:hover {
+  color: white;
 }
 
-.bi:hover{
-  color: white;
+@media (max-width: 600px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .contact-info,
+  .contact-form {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .subtitle {
+    font-size: 30px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .subtitle {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
 </style>

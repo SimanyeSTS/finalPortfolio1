@@ -87,13 +87,13 @@ methods: {
 <style scoped>
 .resume {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   justify-items: center;
 }
 
@@ -110,12 +110,18 @@ methods: {
 }
 
 .skills-card, .skill-entry {
+  width: 100%;
+  max-width: 300px;
   margin-bottom: 10px;
 }
 
 .card {
-  width: 18rem;
-  height: 25rem; 
+  width: 100%;
+  max-width: 280px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -124,18 +130,22 @@ methods: {
 }
 
 .skills .skills-card .card-body {
+  flex-grow: 1;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 150px; 
-  padding: 20px;
 }
 
 .skills .skills-card .card-body p {
-  margin: 0; 
-  text-align: center; 
-  line-height: 1.5; 
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate overflowing text */
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -143,7 +153,7 @@ methods: {
   color: #ff8c00;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: rgb(0, 85, 255) !important;
   color: white !important;
 }
@@ -168,7 +178,21 @@ h1 {
   min-height: 200px;
 }
 
-.education-title{
+.education-title {
   color: #ff8c00 !important;
+}
+
+@media (max-width: 300px) {
+  .grid-container {
+    gap: 5px;
+  }
+
+  .skills-card, .card {
+    max-width: 260px;
+  }
+
+  h1, h2 {
+    font-size: 18px;
+  }
 }
 </style>

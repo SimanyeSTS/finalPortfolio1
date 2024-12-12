@@ -23,6 +23,20 @@
                   </SkillsCard>
                 </div>
               </div>
+              <div class="certificates-section">
+                <h3 class="skills-title">Industry Certificates:</h3>
+                <div class="certificates-grid">
+                  <div v-for="badge in badges" :key="badge.id" class="certificate-item">
+                    <CertificatesCard 
+                      :image="badge.image" 
+                      :title="badge.title"
+                      :link="badge.link"
+                    >
+                      <p class="certificate-desc">{{ badge.description }}</p>
+                    </CertificatesCard>
+                  </div>
+                </div>
+              </div>
               <div class="additional-skills">
                 <h3 class="skills-title">Soft Skills:</h3>
                 <ul class="soft-skills-list">
@@ -50,6 +64,7 @@
 <script>
 import SpinnerComp from '@/components/SpinnerComp.vue';
 import SkillsCard from '@/components/SkillsCard.vue';
+import CertificatesCard from '@/components/CertificatesCard.vue';
 import { mapState } from 'vuex';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
@@ -60,7 +75,8 @@ export default {
   name: 'AboutSection',
   components: {
     SpinnerComp,
-    SkillsCard
+    SkillsCard,
+    CertificatesCard
   },
   data() {
     return {
@@ -80,6 +96,9 @@ export default {
     },
     skillsWithoutLogo() {
       return this.resume && this.resume.Skills ? this.resume.Skills.filter(skill => !skill.logo) : [];
+    },
+    badges() {
+      return this.resume && this.resume.Badges ? this.resume.Badges : [];
     }
   },
   mounted() {
@@ -112,7 +131,10 @@ export default {
 <style scoped>
 .about-wrapper {
   min-height: 100vh;
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .main-title {
@@ -120,10 +142,12 @@ export default {
   color: white;
   text-align: center;
   font-weight: bold;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  margin: clamp(1rem, 4vw, 2rem) auto;
+  padding: 0 1rem;
 }
 
 .about-section {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -131,17 +155,19 @@ export default {
 }
 
 .container {
-  display: flex;
-  max-width: 1200px;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
   gap: clamp(1rem, 4vw, 3rem);
   flex-wrap: wrap;
 }
 
 .text-container {
-  flex: 1 1 400px;
-  padding: clamp(1rem, 3vw, 2rem);
-  text-align: center;
+  flex: 1 1 300px;
+  min-width: 0;
+  padding: 1rem;
 }
 
 .about-text {
@@ -149,10 +175,12 @@ export default {
   line-height: 1.6;
   font-weight: 500;
   color: white;
+  text-align: left;
 }
 
 .skills-and-arrows {
-  flex: 1 1 400px;
+  flex: 1 1 300px;
+  min-width: 0;
   display: flex;
   gap: 1rem;
 }
@@ -161,8 +189,7 @@ export default {
   flex: 1;
   max-height: 600px;
   overflow-y: auto;
-  padding: clamp(1rem, 3vw, 2rem);
-  padding-right: 2rem;
+  padding: 1rem;
   scrollbar-width: thin;
   scrollbar-color: #ff8c00 transparent;
 }
@@ -190,9 +217,32 @@ export default {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
-  gap: clamp(0.5rem, 2vw, 1rem);
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.skill-card, .certificate-item {
+  width: 100%;
+  min-width: 0;
+}
+
+.certificates-section {
+  margin-top: 2rem;
+}
+
+.certificate-desc {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .skill-card {
@@ -276,49 +326,62 @@ export default {
   transform: scale(1.1);
 }
 
-@media (max-width: 996px) {
+/* Mobile-first responsive adjustments */
+@media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    padding: 0.5rem;
   }
   
+  .text-container,
   .skills-container {
-    padding-right: 1rem;
+    flex: 1 1 100%;
+    padding: 0.5rem;
   }
-}
-
-@media (max-width: 768px) {
+  
   .scroll-arrows {
     display: none;
   }
   
   .skills-container {
-    padding: 1rem;
     max-height: none;
     overflow: visible;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-  .about-wrapper {
-    padding: 0.5rem;
+  .skills-grid,
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
   
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .main-title {
+    margin: 1rem auto;
   }
 }
 
 @media (max-width: 300px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
+  .container {
+    padding: 0.25rem;
   }
   
-  .text-container {
-    padding: 0.5rem;
+  .text-container,
+  .skills-container {
+    padding: 0.25rem;
+  }
+  
+  .skills-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-name {
+    font-size: 0.9rem;
+  }
+  
+  .skill-desc,
+  .certificate-desc {
+    font-size: 0.8rem;
   }
 }
 </style>
