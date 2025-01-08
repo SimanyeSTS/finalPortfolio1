@@ -222,7 +222,7 @@ h2 {
 }
 
 .btn-primary:hover {
-  background-color: rgb(0, 85, 255);
+  background-color: rgb(103, 103, 103);
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }

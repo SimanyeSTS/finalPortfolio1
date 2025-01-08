@@ -72,6 +72,10 @@ export default {
   background-color: #36454F;
 }
 
+.container-fluid{
+  overflow: hidden;
+}
+
 #contact{
   background-color: #36454F;
 }

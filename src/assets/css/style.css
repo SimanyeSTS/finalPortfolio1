@@ -15,6 +15,75 @@ font-weight: 700!important;
 
 }
 
+.swal2-popup {
+  background: linear-gradient(135deg, #36454F 0%, #2b2b2b 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.swal2-title {
+  color: #ff8c00 !important; /* Subtle orange for emphasis */
+  font-weight: bold;
+}
+
+.swal2-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.swal2-icon.swal2-error {
+  border-color: #dc3545; /* Keep red for error */
+  color: #dc3545;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #ffc107; /* Subtle yellow for warning */
+  color: #ffc107;
+}
+
+.swal2-icon.swal2-success {
+  border-color: #28a745; /* Green for success */
+  color: #28a745;
+}
+
+.swal2-icon.swal2-info {
+  border-color: #17a2b8; /* Light blue for information */
+  color: #17a2b8;
+}
+
+.swal2-confirm.swal2-styled {
+  background: #36454F !important; /* Dark grey button background */
+  color: #ff8c00 !important; /* Subtle orange text */
+  border-radius: 25px !important;
+  padding: 10px 25px;
+  transition: all 0.3s;
+  border: 1px solid #ff8c00;
+}
+
+.swal2-confirm.swal2-styled:hover {
+  background: #2b2b2b !important; /* Slightly darker grey on hover */
+  color: #ff8c00 !important;
+  transform: translateY(-1px);
+}
+
+.swal2-cancel.swal2-styled {
+  background: rgba(54, 69, 79, 0.8) !important; /* Muted grey for cancel button */
+  color: white !important;
+  border-radius: 25px !important;
+  padding: 10px 25px;
+  border: 1px solid #444;
+  transition: all 0.3s;
+}
+
+.swal2-cancel.swal2-styled:hover {
+  background: rgba(54, 69, 79, 0.9) !important; /* Slightly darker on hover */
+  color: white !important;
+}
+
+.swal2-backdrop-show {
+  background: rgba(0, 0, 0, 0.7) !important; /* Neutral dark overlay */
+}
+
+
 
 body {
   scroll-behavior: smooth;

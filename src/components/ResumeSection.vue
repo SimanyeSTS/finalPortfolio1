@@ -154,7 +154,7 @@ methods: {
 }
 
 .btn-primary:hover {
-  background-color: rgb(0, 85, 255) !important;
+  background-color: rgb(103, 103, 103);
   color: white !important;
 }
 
