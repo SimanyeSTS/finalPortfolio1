@@ -130,6 +130,7 @@ export default {
   width: 100%;
   gap: clamp(1rem, 4vw, 3rem);
   padding: clamp(1rem, 3vw, 2rem);
+  margin-top: 2%;
 }
 
 .image-container {
