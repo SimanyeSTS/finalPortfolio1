@@ -134,9 +134,9 @@ export default {
         heightAuto: false,
       });
 
-      const serviceID = process.env.VUE_APP_SERVICE_ID;
-      const templateID = process.env.VUE_APP_TEMPLATE_ID;
-      const userID = process.env.VUE_APP_USER_ID;
+      const serviceID = 'service_8u7cma9';
+      const templateID = 'template_s6i5hee';
+      const userID = 'FMfCQcMPcCi742ypD';
 
       emailjs.send(serviceID, templateID, this.form, userID)
         .then(() => {
