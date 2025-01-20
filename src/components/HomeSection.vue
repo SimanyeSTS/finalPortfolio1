@@ -144,7 +144,13 @@ export default {
   width: min(80%, 500px);
   height: auto;
   border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+  box-shadow: 
+    -15px 0 15px -15px rgba(255, 140, 0, 0.3),
+    15px 0 15px -15px rgba(54, 69, 79, 0.3),
+    -15px -15px 15px -15px rgba(255, 140, 0, 0.3),
+    15px -15px 15px -15px rgba(54, 69, 79, 0.3),
+    -15px 15px 15px -15px rgba(255, 140, 0, 0.3),
+    15px 15px 15px -15px rgba(54, 69, 79, 0.3);
   transition: transform 0.3s ease;
 }
 
