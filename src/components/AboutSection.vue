@@ -326,7 +326,26 @@ export default {
   transform: scale(1.1);
 }
 
-/* Mobile-first responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .text-container,
+  .skills-and-arrows {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .scroll-arrows {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 18rem;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0.5rem;

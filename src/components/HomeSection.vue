@@ -245,6 +245,31 @@ h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+
+  .text-container {
+    width: 100%;
+    align-items: center;
+  }
+
+  .buttons-container {
+    justify-content: center;
+  }
+}
+
 @media (width <= 768px) {
   .container {
     flex-direction: column;
