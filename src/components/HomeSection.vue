@@ -6,7 +6,7 @@
       </div>
       <div class="text-container">
         <h1>
-          Hi, my name is <br />
+          Hi, this is <br />
           <span class="name">Simanye Somdaka</span>
         </h1>
         <h2>
