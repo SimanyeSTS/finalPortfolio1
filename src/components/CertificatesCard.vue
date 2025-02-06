@@ -136,7 +136,7 @@ export default {
 
 .card:hover {
   transform: scale(1.05);
-  border: solid #ff8c00;
+  border: solid 1px #ff8c00;
   cursor: pointer;
 }
 

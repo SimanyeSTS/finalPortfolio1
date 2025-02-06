@@ -131,8 +131,8 @@ export default {
 <style scoped>
 .about-wrapper {
   min-height: 100vh;
-  padding: 0;
   width: 100%;
+  padding: 0;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -158,16 +158,19 @@ export default {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 clamp(1rem, 4vw, 3rem);
   display: flex;
   gap: clamp(1rem, 4vw, 3rem);
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .text-container {
-  flex: 1 1 300px;
-  min-width: 0;
-  padding: 1rem;
+  flex: 1 1 40%;
+  min-width: 300px;
+  max-width: 600px;
+  width: 100%;
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
 .about-text {
@@ -179,8 +182,10 @@ export default {
 }
 
 .skills-and-arrows {
-  flex: 1 1 300px;
-  min-width: 0;
+  flex: 1 1 50%;
+  min-width: 300px;
+  max-width: 600px;
+  width: 100%;
   display: flex;
   gap: 1rem;
 }
@@ -337,6 +342,7 @@ export default {
   .skills-and-arrows {
     flex: 1 1 auto;
     width: 100%;
+    max-width: 100%;
   }
 
   .scroll-arrows {

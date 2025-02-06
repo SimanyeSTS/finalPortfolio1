@@ -263,7 +263,7 @@ h1 {
 input[type="text"]:hover,
 input[type="email"]:hover,
 textarea:hover {
-  border: solid #ff8c00;
+  border: solid 2px #ff8c00;
 }
 
 .contact-info p {

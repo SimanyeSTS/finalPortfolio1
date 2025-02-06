@@ -119,6 +119,7 @@ export default {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  width: 100%;
   padding: clamp(1rem, 5vw, 3rem);
   background-color: transparent;
   color: white;
@@ -126,11 +127,11 @@ export default {
 
 .container {
   display: flex;
-  max-width: 1200px;
   width: 100%;
+  max-width: 1200px;
   gap: clamp(1rem, 4vw, 3rem);
   padding: clamp(1rem, 3vw, 2rem);
-  margin-top: 2%;
+  margin: 0 auto;
 }
 
 .image-container {
@@ -138,10 +139,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 50%;
 }
 
 .profile-image {
-  width: min(80%, 500px);
+  width: min(100%, 500px);
   height: auto;
   border-radius: 1rem;
   box-shadow: 
@@ -164,6 +166,7 @@ export default {
   flex-direction: column;
   gap: clamp(1rem, 3vw, 2rem);
   justify-content: center;
+  max-width: 50%;
 }
 
 h1 {
@@ -250,19 +253,19 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
   }
 
   .image-container {
     width: 100%;
     max-width: 400px;
     margin: 0 auto 2rem;
+    max-width: 100%;
   }
 
   .text-container {
     width: 100%;
     align-items: center;
+    max-width: 100%;
   }
 
   .buttons-container {

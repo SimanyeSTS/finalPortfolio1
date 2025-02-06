@@ -57,6 +57,7 @@
 <script>
 import SkillsCard from '@/components/SkillsCard.vue';
 import SpinnerComp from '@/components/SpinnerComp.vue';
+import Swal from 'sweetalert2';
 export default {
 name: 'ResumeSection',
 components: {
@@ -73,7 +74,7 @@ computed: {
 },
 created() {
   this.$store.dispatch("fetchResume").catch(err => {
-    console.error("Error fetching resume:", err);
+    Swal.fire("Error fetching education & experience:", err);
   });
 },
 methods: {
@@ -144,17 +145,17 @@ methods: {
   line-height: 1.5;
   font-size: 14px;
   overflow: hidden;
-  text-overflow: ellipsis; /* Truncate overflowing text */
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .btn-primary {
   background-color: transparent;
   color: #ff8c00;
+  border: none
 }
 
 .btn-primary:hover {
-  background-color: rgb(103, 103, 103);
   color: white !important;
 }
 
