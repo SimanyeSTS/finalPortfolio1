@@ -131,8 +131,8 @@ export default {
 <style scoped>
 .about-wrapper {
   min-height: 100vh;
-  width: 100%;
   padding: 0;
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -156,11 +156,11 @@ export default {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 3rem);
   display: flex;
-  gap: clamp(1rem, 4vw, 3rem);
+  gap: clamp(2rem, 6vw, 4rem);
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -169,7 +169,6 @@ export default {
   flex: 1 1 40%;
   min-width: 300px;
   max-width: 600px;
-  width: 100%;
   padding: clamp(1rem, 3vw, 2rem);
 }
 
@@ -185,7 +184,6 @@ export default {
   flex: 1 1 50%;
   min-width: 300px;
   max-width: 600px;
-  width: 100%;
   display: flex;
   gap: 1rem;
 }
@@ -336,6 +334,7 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    max-width: 90%;
   }
 
   .text-container,
