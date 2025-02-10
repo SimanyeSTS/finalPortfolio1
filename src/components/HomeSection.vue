@@ -136,7 +136,6 @@ export default {
 
 .image-container {
   flex: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
   max-width: 50%;
@@ -148,11 +147,11 @@ export default {
   border-radius: 1rem;
   box-shadow: 
     -15px 0 15px -15px rgba(255, 140, 0, 0.3),
-    15px 0 15px -15px rgba(54, 69, 79, 0.3),
+    15px 0 15px -15px rgba(255, 140, 0, 0.3),
     -15px -15px 15px -15px rgba(255, 140, 0, 0.3),
-    15px -15px 15px -15px rgba(54, 69, 79, 0.3),
+    15px -15px 15px -15px rgba(255, 140, 0, 0.3),
     -15px 15px 15px -15px rgba(255, 140, 0, 0.3),
-    15px 15px 15px -15px rgba(54, 69, 79, 0.3);
+    15px 15px 15px -15px rgba(255, 140, 0, 0.3);
   transition: transform 0.3s ease;
 }
 

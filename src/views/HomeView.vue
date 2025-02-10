@@ -52,11 +52,11 @@ export default {
 
 <style>
 #home{
-  background: linear-gradient(to right, #36454F 25%, #ff8c00 50%);
+  background: linear-gradient(to right, #36454F 50%, #ff8c00 50%);
 }
 
 #about{
-  background: linear-gradient(to right, #ff8c00 50%, #36454F 65%);
+  background: linear-gradient(to right, #ff8c00 50%, #36454F 50%);
 
 }
 
@@ -100,5 +100,15 @@ hr{
   position: relative !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
+}
+
+@media screen and (max-width: 768px) {
+  #home {
+    background: linear-gradient(to bottom, #36454F 52%, #ff8c00 50%);
+  }
+  
+  #about {
+    background: linear-gradient(to bottom, #ff8c00 7.8%, #36454F 5%);
+  }
 }
 </style>
